@@ -1,0 +1,20 @@
+# 키와 비밀 값
+.env
+.env.*
+*.key
+
+# 자료 원본 (스크립트로 다시 받는다)
+data_raw/
+*.zip
+*.tif
+*.gdb/
+*.csv.gz
+
+# 파이썬과 편집기
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+.DS_Store
+.vscode/
+.idea/
