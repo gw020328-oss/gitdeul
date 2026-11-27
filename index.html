@@ -1778,16 +1778,16 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
     },
     // 냇가에는 아무것도 아닌 땅이 자료에 없어서, 게임 쪽에서 둔치를 하나 넣었다(임시).
     stream: {
-      hasWalk: false, snow: false, sky: 'spring', base: 'bank', extraTiles: [{ id: 'bank', name: '둔치', goodFor: '아직 아무것도 아닌 물가의 빈 땅이다', costLevel: '조금', engine: true }],
+      hasWalk: true, snow: false, sky: 'spring', spawn: '1,2', outVeg: 'yard', base: 'bank', extraTiles: [{ id: 'bank', name: '둔치', goodFor: '아직 아무것도 아닌 물가의 빈 땅이다', costLevel: '조금', engine: true }],
       smallOn: ['riffle'], cropOn: ['farm'],
       start: { '-2,0': 'riffle', '-1,0': 'riffle', '0,0': 'pool', '1,0': 'riffle', '-2,-1': 'bankwood', '0,-1': 'bankwood', '2,-1': 'farm', '2,1': 'farm', '3,-2': 'village', '-3,2': 'village' }
     },
     forest: {
-      hasWalk: false, snow: false, sky: 'summer', base: 'broadleaf', smallOn: ['broadleaf'],
+      hasWalk: true, snow: false, sky: 'summer', spawn: '1,2', outVeg: 'tree', exposure: 1.3, base: 'broadleaf', smallOn: ['broadleaf'],
       start: { '0,0': 'valley', '1,-1': 'valley', '-1,1': 'valley', '2,-2': 'valley', '-2,2': 'valley', '-2,0': 'conifer', '-3,1': 'conifer', '-2,-1': 'conifer', '-3,0': 'conifer', '2,1': 'rock', '3,-3': 'clearing', '3,-2': 'clearing', '1,2': 'clearing' }
     },
     coast: {
-      hasWalk: false, snow: false, sky: 'autumn', base: 'mixed', smallOn: ['mixed', 'sand'],
+      hasWalk: true, snow: false, sky: 'autumn', spawn: '1,2', sea: true, farColor: [.78, .7, .54], base: 'mixed', smallOn: ['mixed', 'sand'],
       start: { '-3,0': 'channel', '-2,0': 'channel', '-1,0': 'channel', '0,0': 'channel', '-1,-1': 'mud', '-2,-1': 'mud', '0,-1': 'mud', '-2,1': 'mud', '-1,1': 'mud', '2,-1': 'sand', '3,-2': 'sand', '3,-3': 'dune', '-3,3': 'farmflat', '-2,3': 'farmflat' }
     }
   };
@@ -2380,7 +2380,9 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
     wfgoose: ['paddy', 'grass'], beangoose: ['paddy', 'marsh', 'grass'], kestrel: ['grass', 'paddy']
   };
   function pickCell(z, Z, sp, r, used) {
-    const order = PLACE[sp.id] || sp.likes.map(l => l.tile).filter(id => z.tile[id]);
+    let order = PLACE[sp.id] || sp.likes.map(l => l.tile).filter(id => z.tile[id]);
+    // 물고기는 물이 있는 칸에만 놓는다. 좋아하는 칸 가운데 물이 없으면 구역의 물 칸 아무 데나.
+    if (sp.kind === 'fish') { const wet = id => GD.vis.tile(id).h < GD.vis.WL - .03; order = order.filter(wet); if (!order.length) order = z.tiles.map(t => t.id).filter(wet); if (!order.length) return null; }
     // 걷기 시작하는 자리(집 곁) 가까이에는 내려앉지 않는다. 다른 칸이 없을 때만 앉는다.
     const sp0 = z.cfg.spawn ? H.parse(z.cfg.spawn) : null, far = k => { if (!sp0) return true; const p = H.parse(k); return H.dist(p[0] - sp0[0], p[1] - sp0[1]) >= 2; };
     for (const id of order) {
@@ -2390,6 +2392,8 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
       if (c.length) { const k = c[Math.floor(r() * c.length)]; used[k] = 1; return k; }
     }
     if (PLACE[sp.id]) return null;               // 들녘의 이웃은 맞는 칸이 없으면 내려앉지 못한다
+    // 좋아하는 칸이 다 찼으면 다른 이웃과 같은 칸을 쓴다 (물고기가 뭍에 놓이지 않게)
+    for (const id of order) { const c = cellsOf(Z, [id], {}); if (c.length) return c[Math.floor(r() * c.length)]; }
     const any = []; for (const k in Z.tiles) { const t = z.tile[Z.tiles[k]]; if (!used[k] && t && !t.money && !t.fixed && !t.decor) any.push(k); }
     if (!any.length) return null; const k = any[Math.floor(r() * any.length)]; used[k] = 1; return k;
   }
@@ -2813,8 +2817,8 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
     S = W3.scene = new THREE.Scene();
     S.fog = new THREE.FogExp2(HX(0xe9d6ba), .007);
     cam = W3.cam = new THREE.PerspectiveCamera(29, 1, .05, 90);
-    W3.LAND = new THREE.Group(); W3.OBJ = new THREE.Group(); W3.FAR = new THREE.Group(); W3.ACT = new THREE.Group();
-    S.add(W3.LAND, W3.OBJ, W3.FAR, W3.ACT);
+    W3.LAND = new THREE.Group(); W3.OBJ = new THREE.Group(); W3.FAR = new THREE.Group(); W3.ACT = new THREE.Group(); W3.OUTG = new THREE.Group();
+    S.add(W3.LAND, W3.OBJ, W3.FAR, W3.ACT, W3.OUTG);
     buildSky(); buildLights(); buildWaterTex(); buildSnow(); buildGeoms();
     resize(); buildPost();
     window.addEventListener('resize', resize);
@@ -2989,6 +2993,8 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
     return V.tile(t);
   }
   const OUTV = { h: V.OUT_H, c: [.74, .68, .46], snow: .04, veg: null, out: true };
+  // 바닷가: 서쪽이 바다다. 0 이면 뭍, 1 이면 바다.
+  const seaK = x => T.sea ? U.sstep(-W3.zoneR * .45, -W3.zoneR - .4, x) : 0;
 
   function buildTopology(zoneId) {
     const Z = GD.S.z[zoneId], rings = Z.rings, k = Q.sub, s = H.R / k, M = k * (2 * (rings + OUT) + 2), size = 2 * M + 1;
@@ -3034,7 +3040,7 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
   function cellHeight(v, x, z) {
     let h = v.h;
     if (v.rough) h += (U.fbm(x * 3, z * 3) - .5) * v.rough;
-    if (v.out) h += (U.fbm(x * .8 + 2, z * .8) - .5) * .03;
+    if (v.out) { h += (U.fbm(x * .8 + 2, z * .8) - .5) * .03; const k = seaK(x); if (k) h = h * (1 - k) - .3 * k; }
     return h;
   }
   function computeLand() {
@@ -3175,8 +3181,11 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
     for (let i = 0; i < 12; i++) { const dx = (r() * 2 - 1) * H.R * .866, dz = (r() * 2 - 1) * H.R; if (H.atK(c[0] + dx / k, c[1] + dz / k) === key) return [c[0] + dx, c[1] + dz]; }
     return c;
   }
-  function genCell(key) {
-    const Z = GD.S.z[T.zone], z = GD.zone(T.zone), b = bag(), tile = Z.tiles[key], v = visOf(Z, key), veg = v.veg, snowy = !!z.cfg.snow;
+  const TREES = {};          // 칸마다 나무가 선 자리와 높이. 나무 위에 앉는 이웃이 쓴다.
+  W3.trees = key => TREES[key] || [];
+  function genCell(key, outVeg) {
+    const Z = GD.S.z[T.zone], z = GD.zone(T.zone), b = bag(), tile = Z.tiles[key], v = visOf(Z, key), veg = outVeg || v.veg, snowy = !!z.cfg.snow;
+    const trees = []; if (!outVeg) TREES[key] = trees;
     const r = U.rng(U.hashStr(key) * 31 + 5), d = Q.veg, bl = d >= 1 ? 5 : d >= .6 ? 4 : 3, c = H.centerK(key);
     const clump = (px, pz, col, tiltMax, hMin, hVar, layer) => { const h = W3.sample(px, pz); if (h < WL + .012) return; for (let k = 0; k < bl; k++) { mk2(px + (r() - .5) * .02, h - .004, pz + (r() - .5) * .02, .1 + r() * tiltMax, r() * 6.28, .0034, hMin + r() * hVar, .0034); put(b, layer, col); } };
     if (veg === 'stubble' || veg === 'crop') {
@@ -3196,13 +3205,17 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
     } else if (veg === 'reed') {
       for (let a = 0; a < Math.round(300 * d); a++) { const p = rndIn(key, r, .03); reed(b, p[0], p[1], .3 + r() * .28, r); }
     } else if (veg === 'pine') {
-      for (let a = 0; a < 5; a++) { const p = rndIn(key, r, .22); pine(b, p[0], p[1], .9 + r() * .4, r, undefined, false, snowy); }
+      for (let a = 0; a < 5; a++) { const p = rndIn(key, r, .22), s = .9 + r() * .4; trees.push([p[0], p[1], W3.sample(p[0], p[1]) + .8 * s * .42, .1 * s, 0]); pine(b, p[0], p[1], s, r, undefined, false, snowy); }
       for (let a = 0; a < Math.round(40 * d); a++) { const p = rndIn(key, r); clump(p[0], p[1], C(.6 + r() * .1, .56 + r() * .08, .34), .6, .04, .06, 'grass'); }
     } else if (veg === 'tree') {
+      // 넓은잎나무: 걸을 때 올려다보이도록 사람 키의 두세 배로 세운다. 줄기 옆으로 낮은 가지 하나를 내어 부엉이가 앉을 자리로 쓴다.
       for (let a = 0; a < 4; a++) {
-        const p = rndIn(key, r, .25), s = .8 + r() * .5, by = W3.sample(p[0], p[1]) - .01, tone = .85 + r() * .3;
-        mk(p[0], by, p[1], 0, r() * 6, 0, .028 * s, .34 * s, .028 * s); put(b, 'trunk');
-        for (let k = 0; k < 3; k++) { mk(p[0] + (r() - .5) * .16 * s, by + (.36 + k * .09 + r() * .05) * s, p[1] + (r() - .5) * .16 * s, r() * 3, r() * 3, 0, (.17 - k * .03) * s, (.14 - k * .02) * s, (.17 - k * .03) * s); put(b, 'crown', C(.24 * tone + r() * .05, .46 * tone + r() * .08, .2 * tone)); }
+        const p = rndIn(key, r, .28), s = 1.7 + r() * .8, by = W3.sample(p[0], p[1]) - .01, tone = .85 + r() * .3, ba = r() * 6.283;
+        if (W3.sample(p[0], p[1]) < WL) continue;
+        mk(p[0], by, p[1], 0, r() * 6, 0, .026 * s, .5 * s, .026 * s); put(b, 'trunk');
+        mk(p[0], by + .3 * s, p[1], 0, -ba, -Math.PI / 2 + .3, .008 * s, .13 * s, .008 * s); put(b, 'trunk');
+        trees.push([p[0], p[1], by + .3 * s + .034 * s, Math.cos(ba) * .1 * s, Math.sin(ba) * .1 * s]);
+        for (let k = 0; k < 3; k++) { mk(p[0] + (r() - .5) * .14 * s, by + (.52 + k * .1 + r() * .05) * s, p[1] + (r() - .5) * .14 * s, r() * 3, r() * 3, 0, (.17 - k * .03) * s, (.14 - k * .02) * s, (.17 - k * .03) * s); put(b, 'crown', C(.24 * tone + r() * .05, .46 * tone + r() * .08, .2 * tone)); }
       }
       for (let a = 0; a < Math.round(50 * d); a++) { const p = rndIn(key, r); clump(p[0], p[1], C(.36 + r() * .1, .55 + r() * .1, .24), .6, .04, .06, 'grass'); }
     } else if (veg === 'pebble' || veg === 'boulder') {
@@ -3226,7 +3239,7 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
       if (!mesh) {
         const cap = Math.ceil(n * 1.25) + 16; mesh = L[which] = new THREE.InstancedMesh(L.geo, L.mat, cap); mesh.userData.cap = cap;
         mesh.instanceColor = new THREE.BufferAttribute(new Float32Array(cap * 3), 3);
-        mesh.castShadow = L.shadow && which === 'near'; mesh.receiveShadow = which === 'near'; mesh.frustumCulled = false; parent.add(mesh);
+        mesh.castShadow = L.shadow && which !== 'far'; mesh.receiveShadow = which !== 'far'; mesh.frustumCulled = false; parent.add(mesh);
       }
       const ma = mesh.instanceMatrix.array, ca = mesh.instanceColor.array; let o = 0;
       for (const b of bags) { const src = b[name]; if (!src.m.length) continue; ma.set(src.m, o * 16); ca.set(src.c, o * 3); o += src.m.length / 16; }
@@ -3235,7 +3248,13 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
   }
   function refreshVeg(keys) {
     const Z = GD.S.z[T.zone];
-    if (!keys) { for (const k in VEG) delete VEG[k]; keys = Object.keys(Z.tiles); }
+    if (!keys) {
+      for (const k in VEG) delete VEG[k]; for (const k in TREES) delete TREES[k]; keys = Object.keys(Z.tiles);
+      // 구역 바깥 두 겹: 걸을 때 구역이 풍경과 이어져 보이도록 풀이나 나무를 세운다
+      const ov = GD.zone(T.zone).cfg.outVeg, bags = [];
+      if (ov) T.cells.forEach((k, i) => { if (!T.inZone[i]) bags.push(genCell(k, ov)); });
+      fill('out', bags, W3.OUTG);
+    }
     keys.forEach(k => { if (Z.tiles[k] !== undefined) { const b = genCell(k); for (const n in b) { b[n].m = new Float32Array(b[n].m); b[n].c = new Float32Array(b[n].c); } VEG[k] = b; } });
     fill('near', Object.keys(VEG).map(k => VEG[k]), W3.LAND);
   }
@@ -3243,7 +3262,7 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
   /* ---------- 구역 너머의 풍경 (걸을 때만 보인다) ---------- */
   let farBuilt = null;
   function buildFar() {
-    const z = GD.zone(T.zone), snowy = !!z.cfg.snow, rIn = W3.zoneR + .8, sig = T.zone + rIn.toFixed(2);
+    const z = GD.zone(T.zone), snowy = !!z.cfg.snow, rIn = W3.zoneR + .8, sig = T.zone + rIn.toFixed(2), sea = !!z.cfg.sea;
     if (farBuilt === sig) return; farBuilt = sig;
     for (const o of W3.FAR.children.slice()) { W3.FAR.remove(o); if (o.geometry && !o.isInstancedMesh) o.geometry.dispose(); }
     for (const n in LAYER) LAYER[n].far = null;
@@ -3252,9 +3271,9 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
     for (let j = 0; j <= RING; j++) {
       const f = j / RING, d = rIn + (72 - rIn) * f * f;
       for (let i = 0; i <= SEG; i++) {
-        const a = i / SEG * 6.2832, x = Math.cos(a) * d, zz = Math.sin(a) * d, y = -.02 + (U.fbm(x * .15 + 2, zz * .15) - .5) * .3 * U.sstep(rIn + 1, rIn + 8, d);
+        const a = i / SEG * 6.2832, x = Math.cos(a) * d, zz = Math.sin(a) * d, sk = sea ? U.sstep(-rIn * .35, -rIn - .5, x) : 0, y = (-.02 + (U.fbm(x * .15 + 2, zz * .15) - .5) * .3 * U.sstep(rIn + 1, rIn + 8, d)) * (1 - sk) - .7 * sk;
         pos.push(x, y, zz);
-        const sn = snowy ? U.sstep(.44, .6, U.fbm(x * .21 + 3, zz * .21 + 7)) : 0, k = .9 + .2 * U.vnoise(x * .7, zz * .7), g0 = snowy ? [.74, .66, .46] : [.5, .6, .34];
+        const sn = snowy ? U.sstep(.44, .6, U.fbm(x * .21 + 3, zz * .21 + 7)) : 0, k = .9 + .2 * U.vnoise(x * .7, zz * .7), g0 = z.cfg.farColor || (snowy ? [.74, .66, .46] : [.5, .6, .34]);
         _c.setRGB(g0[0] * k * (1 - sn) + .86 * sn, g0[1] * k * (1 - sn) + .875 * sn, g0[2] * k * (1 - sn) + .91 * sn).convertSRGBToLinear(); col.push(_c.r, _c.g, _c.b);
       }
     }
@@ -3262,16 +3281,23 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
     const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute('color', new THREE.Float32BufferAttribute(col, 3)); g.setIndex(idx); g.computeVertexNormals();
     const m = new THREE.Mesh(g, new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 1, envMapIntensity: .3 })); m.receiveShadow = true; W3.FAR.add(m);
     const r = U.rng(123), mh1 = mat(snowy ? C(.52, .53, .5) : C(.36, .46, .34), { roughness: 1, envMapIntensity: .2 }), mh2 = mat(snowy ? C(.58, .64, .72) : C(.46, .56, .6), { roughness: 1, envMapIntensity: .2 });
-    for (let i = 0; i < 16; i++) { const a = i / 16 * 6.283 + r() * .3, d = 26 + r() * 6, h = new THREE.Mesh(G.sph, mh1); h.position.set(Math.cos(a) * d, -.4, Math.sin(a) * d); h.scale.set(7 + r() * 6, 1.2 + r() * 1.5, 5 + r() * 4); h.rotation.y = r() * 3; W3.FAR.add(h); }
-    for (let i = 0; i < 18; i++) { const a = i / 18 * 6.283 + r() * .3, d = 39 + r() * 9, h = new THREE.Mesh(G.sph, mh2); h.position.set(Math.cos(a) * d, -.5, Math.sin(a) * d); h.scale.set(10 + r() * 8, 3 + r() * 4, 7 + r() * 5); h.rotation.y = r() * 3; W3.FAR.add(h); }
+    for (let i = 0; i < 16; i++) { const a = i / 16 * 6.283 + r() * .3, d = 26 + r() * 6, h = new THREE.Mesh(G.sph, mh1); if (sea && Math.cos(a) < .15) continue; h.position.set(Math.cos(a) * d, -.4, Math.sin(a) * d); h.scale.set(7 + r() * 6, 1.2 + r() * 1.5, 5 + r() * 4); h.rotation.y = r() * 3; W3.FAR.add(h); }
+    for (let i = 0; i < 18; i++) { const a = i / 18 * 6.283 + r() * .3, d = 39 + r() * 9, h = new THREE.Mesh(G.sph, mh2); if (sea && Math.cos(a) < .15) continue; h.position.set(Math.cos(a) * d, -.5, Math.sin(a) * d); h.scale.set(10 + r() * 8, 3 + r() * 4, 7 + r() * 5); h.rotation.y = r() * 3; W3.FAR.add(h); }
     const b = bag();
-    for (let i = 0; i < Q.far; i++) { const a = r() * 6.283, d = rIn + 2.5 + r() * 22, x = Math.cos(a) * d, zz = Math.sin(a) * d; pine(b, x, zz, 1 + r() * .9, r, 0, true, snowy); }
+    for (let i = 0; i < Q.far; i++) { const a = r() * 6.283, d = rIn + 2.5 + r() * 22, x = Math.cos(a) * d, zz = Math.sin(a) * d, s = 1 + r() * .9; if (sea && x < 3) continue; pine(b, x, zz, s, r, 0, true, snowy); }
     fill('far', [b], W3.FAR);
+    if (sea) {                 // 바다: 구역의 물과 겹치지 않게 아주 조금 낮춘다
+      const sg = new THREE.PlaneGeometry(170, 170); sg.rotateX(-Math.PI / 2);
+      const sm = new THREE.Mesh(sg, waterMat); sm.position.y = WL - .004; sm.renderOrder = 1; W3.FAR.add(sm);
+    }
   }
 
   /* ================= 밖에서 부르는 것 ================= */
   // 구역의 땅을 처음부터 짓는다 (구역을 옮기거나 땅을 넓혔을 때)
   W3.build = function (zoneId) {
+    const zc = GD.zone(zoneId).cfg; T.sea = !!zc.sea; W3.exposureMul = zc.exposure || 1;
+    W3.zoneR = SQ3 * H.R * (GD.S.z[zoneId].rings + .5);
+    OUTV.c = zc.snow ? [.74, .68, .46] : zc.farColor || V.tile(GD.zone(zoneId).base).c;
     buildTopology(zoneId); computeLand(); refreshVeg(null); buildFar();
     SNOW.pts.visible = !!GD.zone(zoneId).cfg.snow;
     W3.setMode(W3.mode || 'tend');
@@ -3287,7 +3313,7 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
   };
   W3.setMode = function (mode) {
     W3.mode = mode; const walk = mode === 'walk';
-    W3.FAR.visible = walk; if (outer) outer.visible = walk; if (skirt) skirt.visible = !walk; ground.visible = !walk;
+    W3.FAR.visible = walk; W3.OUTG.visible = walk; if (outer) outer.visible = walk; if (skirt) skirt.visible = !walk; ground.visible = !walk;
     S.fog.density = walk ? .028 : .007;
   };
   W3.render = function (dt) {
@@ -3304,7 +3330,8 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
     const gl = R.getContext(), px = new Uint8Array(4), one = () => { if (comp) comp.render(); else R.render(S, cam); gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px); };
     for (let i = 0; i < 3; i++) one();
     const t0 = performance.now(); for (let i = 0; i < n; i++) one();
-    return (performance.now() - t0) / n;
+    const ms = (performance.now() - t0) / n; R.info.reset(); one();     // 숫자 판에는 마지막 한 장면만 남긴다
+    return ms;
   };
 })();
 
@@ -3553,11 +3580,16 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
       const mdl = simple(spId, kind, stage); a.mdl = mdl;
       const size = Math.max(mdl.height || .3, mdl.length || 0, .02);
       // 작은 이웃은 보이도록 키운다. 판 위(걷는 화면이 없는 구역)에서는 더 크게 보여 준다.
-      let sc = SCALE; const min = board ? (kind === 'fish' ? .5 : .4) : .15;
+      let sc = SCALE; const min = board ? (kind === 'fish' ? .5 : .4) : (kind === 'fish' ? .22 : kind === 'crab' ? .1 : .15);
       if (size * sc < min) sc = min / size; if (board && kind !== 'plant') sc = Math.max(sc, Math.min(.55 / size, SCALE * 1.6));
       a.scale = sc; a.size = Math.max(mdl.height || .3, .03) * sc;
       const g = new THREE.Group(); mdl.group.scale.setScalar(sc); g.add(mdl.group); a.obj = g;
       g.traverse(o => { if (o.isMesh) { o.castShadow = kind !== 'fish'; o.frustumCulled = false; } });
+    }
+    // 나무 위에 앉는 이웃: 그 칸이나 이웃 칸의 나무를 골라 가지 높이에 앉힌다. 나무가 없으면 땅에 앉는다.
+    if (moveType === 'perch') {
+      let ts = W3.trees(cell); if (!ts.length) for (const nk of H.neighbors(cell)) { ts = W3.trees(nk); if (ts.length) break; }
+      if (ts.length) { const t = ts[Math.floor(r() * ts.length)]; a.x = t[0] + t[3]; a.z = t[1] + t[4]; a.perchY = t[2]; a.yaw = Math.atan2(t[3], t[4]); }
     }
     W3.ACT.add(a.obj); A.list.push(a); place(a, 0); return a;
   }
@@ -3597,8 +3629,9 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
       o.position.set(a.x, W3.sample(a.x, a.z) - .004 + Math.abs(Math.sin(a.ph)) * .005 * a.walk + a.alt, a.z); o.rotation.y = a.yaw;
     } else {
       let y;
-      if (a.move === 'floater') y = WL - .012 + Math.sin(a.clock * 1.3) * .003;
-      else if (a.move === 'swim') y = WL - (a.size || .05) * .3 + Math.sin(a.clock * 1.7 + a.i) * .004;   // 등이 물 위로 조금 보인다
+      if (a.perchY !== undefined) y = a.perchY;
+      else if (a.move === 'floater') y = WL - .012 + Math.sin(a.clock * 1.3) * .003;
+      else if (a.move === 'swim') y = WL - (a.size || .05) * .5 + Math.sin(a.clock * 1.7 + a.i) * .004;   // 등이 물 위로 조금 보인다
       else y = Math.max(W3.sample(a.x, a.z), a.move === 'plant' ? WL - .01 : -9) - .003;
       o.position.set(a.x, y + a.alt, a.z); o.rotation.y = a.yaw;
     }
@@ -3682,7 +3715,8 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
     let moving = false; if (move) { moving = step(a, move[0], move[1], speed, dt, .08); if (!moving && a.state === 'stroll') { a.state = 'feed'; a.t = 3; } }
     a.mode = moving ? 'move' : a.state === 'alert' || a.state === 'away' ? 'alert' : a.state === 'feed' ? 'feed' : a.state === 'rest' ? 'rest' : 'idle';
   }
-  function updSwim(a, dt) {               // 물고기: 물속을 천천히 돈다
+  function updSwim(a, dt, P) {            // 물고기: 물속을 천천히 돈다. 뛰어서 다가오면 흩어진다.
+    if (P && P.on && P.fast) { const dx = a.x - P.x, dz = a.z - P.z, d = Math.hypot(dx, dz); if (d < 1.1) { spook(a); a.tx = a.x + dx / (d || 1) * .6; a.tz = a.z + dz / (d || 1) * .6; a.t = 2; } }
     if (a.t <= 0) { a.t = 2 + Math.random() * 4; const ang = Math.random() * 6.283, rr = .1 + Math.random() * .4; a.tx = a.home.x + Math.cos(ang) * rr; a.tz = a.home.z + Math.sin(ang) * rr; }
     const ex = a.tx - a.x, ez = a.tz - a.z, l = Math.hypot(ex, ez); let moving = false;
     if (l > .03) moving = step(a, ex / l, ez / l, .12, dt, .06, 2.5);
@@ -3706,7 +3740,7 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
       if (a.move === 'walker') updWalker(a, dt, P);
       else if (a.move === 'floater') updFloater(a, dt, P);
       else if (a.move === 'ground') updGround(a, dt, P);
-      else if (a.move === 'swim') updSwim(a, dt);
+      else if (a.move === 'swim') updSwim(a, dt, P);
       else if (a.move === 'hover') updHover(a, dt);
       else updStill(a, dt);
       if (a.gone) continue;
@@ -3750,6 +3784,14 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
     for (let k = 0; k < 3; k++) { const a = t + k * .46; g.gain.setValueAtTime(.0001, a); g.gain.linearRampToValueAtTime(vol, a + .05); g.gain.setValueAtTime(vol, a + .26); g.gain.exponentialRampToValueAtTime(.0001, a + .42); }
     os.forEach(o => { o.start(t); o.stop(t + 1.5); });
   };
+  // 소쩍새 소리: 두 마디로 끊어 우는 휘파람 같은 임시 소리
+  AU.hoot = function (x, z, vol) {
+    if (!AC) return; const t = AC.currentTime + .05, pan = AC.createPanner(); pan.panningModel = 'equalpower'; pan.distanceModel = 'inverse'; pan.refDistance = 1.2; pan.rolloffFactor = .9; pan.setPosition(x, 1, z);
+    const g = AC.createGain(); g.gain.value = 0; g.connect(pan); pan.connect(AU.master); const o = AC.createOscillator(); o.type = 'sine'; o.connect(g);
+    [[0, 1180], [.34, 960]].forEach(([d, f]) => { o.frequency.setValueAtTime(f, t + d); g.gain.setValueAtTime(.0001, t + d); g.gain.linearRampToValueAtTime(vol, t + d + .03); g.gain.exponentialRampToValueAtTime(.0001, t + d + .24); });
+    o.start(t); o.stop(t + .7);
+  };
+  AU.nextHoot = 4;
   AU.setMute = function (m) { AU.mute = m; if (AC) AU.master.gain.setTargetAtTime(m ? 0 : .9, AC.currentTime, .1); };
   AU.frame = function (dt, walking, moving, bob, pos, yaw, eyeY) {
     if (!AC) return; const t = AC.currentTime, gust = .5 + .5 * Math.sin(t * .23) * Math.sin(t * .071 + 1);
@@ -3757,6 +3799,7 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
     const L = AC.listener; if (L.setPosition) { L.setPosition(pos.x, eyeY, pos.z); L.setOrientation(-Math.sin(yaw), 0, -Math.cos(yaw), 0, 1, 0); }
     if (!walking) return;
     const st = Math.floor(bob / Math.PI); if (moving && st !== AU.step) { AU.step = st; AU.footstep(GD.w3.sample(pos.x, pos.z) < GD.vis.WL, GD.w3.snowAt(pos.x, pos.z)); }
+    AU.nextHoot -= dt; if (AU.nextHoot <= 0) { AU.nextHoot = 6 + Math.random() * 7; const Z = GD.S.z[GD.S.zone], h = Z.here.scopsowl; if (h && GD.sim.phase().id === 'night') { const c = GD.hex.centerK(h.cell); AU.hoot(c[0], c[1], .22); } }
     AU.nextCall -= dt; if (AU.nextCall <= 0) { AU.nextCall = 28 + Math.random() * 30; const cc = GD.actors.list.filter(a => a.sp === 'crane' && !a.gone && a.state !== 'alert' && a.state !== 'away'); if (cc.length) { const c = cc[Math.floor(Math.random() * cc.length)]; AU.craneCall(c.x, c.z, .28); } }
   };
   const wake = () => { start(); if (AC && AC.state === 'suspended') AC.resume(); };
