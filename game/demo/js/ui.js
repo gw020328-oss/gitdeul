@@ -206,7 +206,7 @@
     if (o.name) UI.modal(U.josa(sp.name, '이/가') + ' 깃들었어요', esc(U.josa(sp.name, '이/가') + ' 이 땅을 제 터로 삼았어요. 깃든 자리에 이름을 지어 주세요. 이웃이 아니라 땅의 이름이에요. 팻말이 서고, 지도와 도감에 남아요.')
       + '<p><input type="text" id="nm" maxlength="12" value="' + esc(o.name.suggest) + '"></p>', [['이 이름으로 짓기', () => { const nm = SIM.nameSpot(o.sp, $('nm').value); UI.toast('\'' + nm + '\' 팻말을 세웠어요'); }]], { after: () => { const i = $('nm'); i.focus(); i.select(); } });
     o.events.forEach(ev => {
-      if (ev.open) { const nz = GD.zone(ev.open); UI.modal(nz.name + '가 열렸어요', esc(U.josa(sp.name, '이/가') + ' 깃들었어요. 깃듦이 다음 구역을 여는 열쇠예요.') + '<small>' + (ev.ready ? '지도(T)에서 ' + esc(nz.name) + '로 갈 수 있어요. 날은 모든 구역에서 같이 가요. 돈도 하나로 써요.' : '이 구역의 내용 자료는 아직 준비 중이에요.') + '</small>', [['계속 가꾸기'], ['지도 보기', () => { setTimeout(UI.map, 0); }]]); }
+      if (ev.open) { const nz = GD.zone(ev.open); UI.modal(U.josa(nz.name, '이/가') + ' 열렸어요', esc(U.josa(sp.name, '이/가') + ' 깃들었어요. 깃듦이 다음 구역을 여는 열쇠예요.') + '<small>' + (ev.ready ? '지도(T)에서 ' + esc(U.josa(nz.name, '으로/로')) + ' 갈 수 있어요. 날은 모든 구역에서 같이 가요. 돈도 하나로 써요.' : '이 구역의 내용 자료는 아직 준비 중이에요.') + '</small>', [['계속 가꾸기'], ['지도 보기', () => { setTimeout(UI.map, 0); }]]); }
       if (ev.done) { const dz = GD.zone(ev.done); UI.modal(dz.name + '을 완성했어요', '어려운 발길의 이웃이 모두 깃들었어요. 들머리에 솟대가 섰어요. 이제 "' + esc(dz.keeper) + '"라고 불려요.<small>' + s.year + '해째 ' + s.day + '일째에 완성했어요. 완성은 끝이 아니에요. 해마다 이웃이 돌아오는지 지켜보게 돼요.</small>', [['계속 가꾸기']]); GD.emit('objects'); }
     });
     UI.dirty();
