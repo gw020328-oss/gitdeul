@@ -2649,7 +2649,7 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
         care ? (c > 0 ? '와 있는 이웃이 더 편히 머묾' : '돌봄이 줄어듦') : lvWord(zid, m => { m['@' + id] -= c; return m; })]);
     }
     if (T.sold) rows.push(['작은 벌이 ' + T.sold + '칸', '돈 +' + T.soldMoney + '. 이웃의 먹이가 줄어듦']);
-    const watched = Object.keys(T.watched).map(id => GD.SP[id].name);
+    const watched = Object.keys(T.watched).filter(id => GD.SP[id]).map(id => GD.SP[id].name);
     if (watched.length) rows.push([U.joinNames(watched) + ' 관찰', '편안함이 오름']);
     T.recs.forEach(r => rows.push([GD.SP[r.sp].name + '의 ' + GD.STG[r.k] + '을 도감에 적음', '돈 +' + CFG.income.record[r.k - 1]]));
     if (T.traces.length) rows.push(['흔적 ' + T.traces.length + '개 찾음', 'AI가 ' + U.joinNames(T.traces.filter((v, i, a) => a.indexOf(v) === i).map(id => GD.SP[id].name)) + '에 대해 더 자세히 말해 줌']);
@@ -2657,8 +2657,8 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
     for (const zid in T.guest) rows.push([T.guest[zid] === 'taken' ? '손님을 받음' : '손님을 돌려보냄', T.guest[zid] === 'taken' ? '돈 +' + CFG.income.guest + '. 편안함이 깎임' : '이웃이 조용히 지냄']);
     openZones().forEach(z => { const Z = s.z[z.id]; if (Z.guest && Z.guest.state === 'waiting') rows.push(['구경꾼을 내버려 둠', '이웃의 편안함이 깎임']); if (Z.intruder) rows.push([U.josa(GD.INTRUDER[Z.intruder.id].name, '을/를') + ' 내버려 둠', '이웃의 편안함이 깎임']); });
     T.fixed.forEach(id => rows.push([U.josa(GD.INTRUDER[id].name, '을/를') + ' 걷어 냄', '이웃이 다시 편히 지냄']));
-    Object.keys(T.spooked).forEach(id => rows.push([U.josa(GD.SP[id].name, '을/를') + ' 놀라게 함', '편안함이 깎임']));
-    Object.keys(T.dug).forEach(id => rows.push([U.josa(GD.SP[id].name, '이/가') + ' 머무는 칸을 바꿈', '편안함이 깎임']));
+    Object.keys(T.spooked).filter(id => GD.SP[id]).forEach(id => rows.push([U.josa(GD.SP[id].name, '을/를') + ' 놀라게 함', '편안함이 깎임']));
+    Object.keys(T.dug).filter(id => GD.SP[id]).forEach(id => rows.push([U.josa(GD.SP[id].name, '이/가') + ' 머무는 칸을 바꿈', '편안함이 깎임']));
     T.expand.forEach(zid => rows.push([GD.zone(zid).name + '의 땅을 넓힘', '가꿀 칸이 늘어남']));
     if (T.decor) rows.push(['꾸밈 ' + T.decor + '개', '보호구역의 모습이 달라짐']);
     // 내일의 가능성
@@ -2778,7 +2778,7 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
 
   /* ---------- 바라보기와 도감 ---------- */
   // 멀리서 조용히 바라봄 (도감에 적을 것이 없어도 편안함이 오른다)
-  SIM.watched = function (spId) { const T = did(); if (T.watched[spId]) return false; T.watched[spId] = 1; tally('watch'); GD.emit('watched', spId); return true; };
+  SIM.watched = function (spId) { const T = did(); if (!GD.SP[spId]) return false; if (T.watched[spId]) return false; T.watched[spId] = 1; tally('watch'); GD.emit('watched', spId); return true; };
   // 첫 아침 안내를 다시 볼 때: 그 이웃이 오늘 와 있지 않으면 내려앉게 한다 (잦은 발길의 쇠기러기에만 쓴다)
   SIM.ensureHere = function (zoneId, spId) {
     const s = S(), z = GD.zone(zoneId), Z = s.z[zoneId]; if (Z.here[spId] && !Z.here[spId].away) return;
@@ -2786,7 +2786,7 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
     Z.here[spId] = { cell }; s.met[spId] = true; if (!s.firstDay[spId]) s.firstDay[spId] = { y: s.year, d: s.day, t: Object.assign({}, s.tally || {}) };
     GD.emit('actors');
   };
-  SIM.spooked = function (spId) { const T = did(); if (T.spooked[spId]) return false; T.spooked[spId] = 1; return true; };
+  SIM.spooked = function (spId) { const T = did(); if (!GD.SP[spId]) return false;   /* 불청객은 이웃이 아니라서 적지 않는다 */ if (T.spooked[spId]) return false; T.spooked[spId] = 1; return true; };
 
   function spotName(sp, tileName) {
     const suf = { water: '못', paddy: '논', marsh: '늪', grass: '들', wood: '숲', reedbed: '갈대밭' };
@@ -4349,7 +4349,7 @@ GD.KEEPER = { field: '들녘지기', stream: '냇가지기', forest: '숲지기'
     if (o.name) UI.modal(U.josa(sp.name, '이/가') + ' 깃들었어요', esc(U.josa(sp.name, '이/가') + ' 이 땅을 제 터로 삼았어요. 깃든 자리에 이름을 지어 주세요. 이웃이 아니라 땅의 이름이에요. 팻말이 서고, 지도와 도감에 남아요.')
       + '<p><input type="text" id="nm" maxlength="12" value="' + esc(o.name.suggest) + '"></p>', [['이 이름으로 짓기', () => { const nm = SIM.nameSpot(o.sp, $('nm').value); UI.toast('\'' + nm + '\' 팻말을 세웠어요'); }]], { after: () => { const i = $('nm'); i.focus(); i.select(); } });
     o.events.forEach(ev => {
-      if (ev.open) { const nz = GD.zone(ev.open); UI.modal(nz.name + '가 열렸어요', esc(U.josa(sp.name, '이/가') + ' 깃들었어요. 깃듦이 다음 구역을 여는 열쇠예요.') + '<small>' + (ev.ready ? '지도(T)에서 ' + esc(nz.name) + '로 갈 수 있어요. 날은 모든 구역에서 같이 가요. 돈도 하나로 써요.' : '이 구역의 내용 자료는 아직 준비 중이에요.') + '</small>', [['계속 가꾸기'], ['지도 보기', () => { setTimeout(UI.map, 0); }]]); }
+      if (ev.open) { const nz = GD.zone(ev.open); UI.modal(U.josa(nz.name, '이/가') + ' 열렸어요', esc(U.josa(sp.name, '이/가') + ' 깃들었어요. 깃듦이 다음 구역을 여는 열쇠예요.') + '<small>' + (ev.ready ? '지도(T)에서 ' + esc(U.josa(nz.name, '으로/로')) + ' 갈 수 있어요. 날은 모든 구역에서 같이 가요. 돈도 하나로 써요.' : '이 구역의 내용 자료는 아직 준비 중이에요.') + '</small>', [['계속 가꾸기'], ['지도 보기', () => { setTimeout(UI.map, 0); }]]); }
       if (ev.done) { const dz = GD.zone(ev.done); UI.modal(dz.name + '을 완성했어요', '어려운 발길의 이웃이 모두 깃들었어요. 들머리에 솟대가 섰어요. 이제 "' + esc(dz.keeper) + '"라고 불려요.<small>' + s.year + '해째 ' + s.day + '일째에 완성했어요. 완성은 끝이 아니에요. 해마다 이웃이 돌아오는지 지켜보게 돼요.</small>', [['계속 가꾸기']]); GD.emit('objects'); }
     });
     UI.dirty();
