@@ -1,0 +1,2392 @@
+{
+ "species": [
+  {
+   "id": "crane",
+   "zone": "field",
+   "name": "두루미",
+   "sci": "Grus japonensis",
+   "sciChecked": true,
+   "tier": "hard",
+   "kind": "bird",
+   "badges": [
+    "천연기념물",
+    "멸종위기 I급"
+   ],
+   "badgesChecked": true,
+   "badgesNote": "천연기념물 목록에서 번호가 비어 있다",
+   "badgeDetail": {
+    "천연기념물": "번호 없음",
+    "멸종위기": "두루미 (I급)"
+   },
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "기획서 4.2",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "설계안 2.4 (모델: 두루미)",
+   "likes": [
+    {
+     "tile": "paddy",
+     "weight": "strong",
+     "why": "낟알을 주워 먹는다",
+     "from": "기획서 11.1"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "greenhouse",
+     "weight": "strong",
+     "why": "먹이터가 사라진다",
+     "from": "기획서 11.1"
+    },
+    {
+     "tile": "wood",
+     "weight": "some",
+     "why": "너무 넓으면 시야를 막는다",
+     "from": "기획서 11.1 (큰 새)"
+    }
+   ],
+   "itemLikes": [
+    {
+     "item": "watergate",
+     "why": "얕은 물이 잠자리가 된다",
+     "from": "기획서 11.1"
+    },
+    {
+     "item": "signpost",
+     "why": "사람 발길이 줄어 경계가 준다",
+     "from": "기획서 9, 행동_문헌조사 1 (차 250m)"
+    }
+   ],
+   "stages": {
+    "visit": "부부가 번갈아 고개를 든다",
+    "stay": "가족이 깃을 다듬는다",
+    "settle": "한 쌍이 춤추고 함께 운다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 5.5",
+    "stay": "기획서 5.5",
+    "settle": "기획서 5.5"
+   },
+   "traces": [
+    "footprint",
+    "feather",
+    "dropping"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "겨울에 논에서 낟알을 먹는다. 부부가 번갈아 먹으며 경계하고, 가족 단위로 다닌다. 겨울에도 춤을 춘다. 철원 조사에서는 차가 250m 밖에 서면 반응하지 않았고, 200m 안에서는 재두루미보다 민감했다.",
+    "sources": [
+     "https://koreascience.or.kr/article/JAKO200707341630390.page?lang=ko",
+     "https://univ-journal.net/23967/",
+     "https://news.tf.co.kr/read/ogmeta/1781628.htm"
+    ],
+    "checked": true
+   }
+  },
+  {
+   "id": "stork",
+   "zone": "field",
+   "name": "황새",
+   "sci": "Ciconia boyciana",
+   "sciChecked": true,
+   "tier": "hard",
+   "kind": "bird",
+   "badges": [
+    "천연기념물",
+    "멸종위기 I급"
+   ],
+   "badgesChecked": true,
+   "badgeDetail": {
+    "천연기념물": "제199호",
+    "멸종위기": "황새 (I급)"
+   },
+   "dayPart": [
+    "dawn",
+    "dusk"
+   ],
+   "dayPartFrom": "행동_문헌조사 2 (아침과 늦은 오후를 새벽과 해 질 녘으로 옮김)",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 11.1 (겨울 탐조 기록). 종별 확인은 안 함",
+   "likes": [
+    {
+     "tile": "marsh",
+     "weight": "strong",
+     "why": "얕은 물을 걸으며 물고기를 잡는다",
+     "from": "기획서 11.1"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "greenhouse",
+     "weight": "strong",
+     "why": "먹이터가 사라진다",
+     "from": "기획서 11.1"
+    },
+    {
+     "tile": "wood",
+     "weight": "some",
+     "why": "너무 넓으면 시야를 막는다",
+     "from": "기획서 11.1 (큰 새)"
+    }
+   ],
+   "itemLikes": [
+    {
+     "item": "watergate",
+     "why": "얕은 물이 사냥터가 된다",
+     "from": "기획서 11.1"
+    }
+   ],
+   "stages": {
+    "visit": "혼자 논둑에 선다",
+    "stay": "얕은 물을 걸으며 사냥한다",
+    "settle": "작은 무리로 모인다"
+   },
+   "stagesFrom": {
+    "visit": "설계안 7.6, 행동_문헌조사 2",
+    "stay": "설계안 7.6, 행동_문헌조사 2",
+    "settle": "설계안 7.6, 행동_문헌조사 2"
+   },
+   "traces": [
+    "footprint",
+    "feather",
+    "dropping"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "얕은 물을 천천히 걸으며 물고기를 잡는다. 겨울에는 아침과 늦은 오후에 먹고, 혼자 또는 10~15마리 작은 무리로 다닌다. 2015년부터 방사해 정착한 무리와 겨울에 오는 야생 무리가 둘 다 있다.",
+    "sources": [
+     "https://www.cambridge.org/core/product/FBDA17FBAB90BC820BC8ECC765B5E558/core-reader",
+     "https://www.newsis.com/view/NISX20260128_0003494011"
+    ],
+    "checked": true
+   }
+  },
+  {
+   "id": "swan",
+   "zone": "field",
+   "name": "큰고니",
+   "sci": "Cygnus cygnus",
+   "sciChecked": true,
+   "tier": "hard",
+   "kind": "bird",
+   "badges": [
+    "천연기념물",
+    "멸종위기 II급"
+   ],
+   "badgesChecked": true,
+   "badgeDetail": {
+    "천연기념물": "제201-2호",
+    "멸종위기": "큰고니 (II급)"
+   },
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "행동_문헌조사 2",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 11.1 (겨울 탐조 기록). 종별 확인은 안 함",
+   "likes": [
+    {
+     "tile": "water",
+     "weight": "strong",
+     "why": "내려앉는다",
+     "from": "기획서 11.1"
+    },
+    {
+     "tile": "marsh",
+     "weight": "some",
+     "why": "얕은 물에서 잔다",
+     "from": "행동_문헌조사 2 (얕은 물에서 잔다)"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "wood",
+     "weight": "some",
+     "why": "너무 넓으면 시야를 막는다",
+     "from": "기획서 11.1 (큰 새)"
+    },
+    {
+     "tile": "greenhouse",
+     "weight": "some",
+     "why": "먹이터가 사라진다",
+     "from": "짐작"
+    }
+   ],
+   "stages": {
+    "visit": "물 가운데 멀리 떠 있다",
+    "stay": "물가 가까이에서 먹는다",
+    "settle": "작은 무리가 물가에서 오래 쉰다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 5.5",
+    "stay": "기획서 5.5",
+    "settle": "짐작 (문서는 깃듦 장면을 다시 찾는 중)"
+   },
+   "traces": [
+    "footprint",
+    "feather",
+    "dropping"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "낮에 먹고, 연이 많은 물을 쓰며, 얕은 물에서 잔다. 스웨덴 겨울 농경지에서는 평균 102m에서 날아올랐다. 한국 수치와 한국 연구는 적다.",
+    "sources": [
+     "https://datadryad.org/dataset/doi:10.5061/dryad.z8w9ghxq4",
+     "https://www.jstage.jst.go.jp/article/birdresearch/14/0/14_A1/_article/-char/en"
+    ],
+    "checked": true
+   }
+  },
+  {
+   "id": "kestrel",
+   "zone": "field",
+   "name": "황조롱이",
+   "sci": "Falco tinnunculus",
+   "sciChecked": false,
+   "tier": "seldom",
+   "kind": "bird",
+   "badges": [
+    "천연기념물"
+   ],
+   "badgesChecked": true,
+   "badgesNote": "천연기념물 목록에서 번호가 비어 있다",
+   "badgeDetail": {
+    "천연기념물": "번호 없음"
+   },
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "기획서 4.2",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 11.1 (겨울 탐조 기록). 종별 확인은 안 함",
+   "likes": [
+    {
+     "tile": "grass",
+     "weight": "strong",
+     "why": "들쥐를 잡는다",
+     "from": "기획서 11.1"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "greenhouse",
+     "weight": "some",
+     "why": "먹이터가 사라진다",
+     "from": "짐작"
+    }
+   ],
+   "stages": {
+    "visit": "높은 곳에 앉아 살핀다",
+    "stay": "들판 위를 낮게 난다",
+    "settle": "멈춰 떠 있다가 내리꽂는다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 5.5",
+    "stay": "기획서 5.5",
+    "settle": "기획서 5.5"
+   },
+   "traces": [
+    "feather",
+    "dropping"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "공중에 멈춰 떠 있다가 내리꽂는다. 울타리 기둥에 앉아 살피고, 겨울 먹이는 거의 들쥐다. 영국 자료라 한국 기록은 따로 확인하지 못했다.",
+    "sources": [
+     "https://www.rspb.org.uk/birds-and-wildlife/kestrel"
+    ],
+    "checked": true
+   }
+  },
+  {
+   "id": "beangoose",
+   "zone": "field",
+   "name": "큰기러기",
+   "sci": "Anser fabalis",
+   "sciChecked": true,
+   "tier": "seldom",
+   "kind": "bird",
+   "badges": [
+    "멸종위기 II급"
+   ],
+   "badgesChecked": true,
+   "badgeDetail": {
+    "멸종위기": "큰기러기 (II급)"
+   },
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 11.1 (겨울 탐조 기록). 종별 확인은 안 함",
+   "likes": [
+    {
+     "tile": "paddy",
+     "weight": "strong",
+     "why": "낟알을 먹는다",
+     "from": "기획서 11.1 (기러기)"
+    },
+    {
+     "tile": "water",
+     "weight": "some",
+     "why": "잠자리가 된다",
+     "from": "행동_문헌조사 2 (기러기류 전체 기준)"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "greenhouse",
+     "weight": "some",
+     "why": "먹이터가 사라진다",
+     "from": "기획서 11.1 (비닐하우스 칸의 설명을 옮김)"
+    }
+   ],
+   "stages": {
+    "visit": "경계가 잦다. 먹다가 자주 고개를 든다",
+    "stay": "경계가 줄어든다. 깃이나 털을 다듬고 느긋하게 돌아다닌다",
+    "settle": "큰 무리가 된다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 5.5 (모든 종의 틀)",
+    "stay": "기획서 5.5 (모든 종의 틀)",
+    "settle": "짐작"
+   },
+   "traces": [
+    "footprint",
+    "feather",
+    "dropping"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "기러기류는 낮에 논에서 낟알을 먹고 저수지에서 잔다. 놀라면 떼로 날아오르고, 무리가 클수록 경계가 준다. 기러기류 전체를 기준으로 한 글이라 큰기러기에게 그대로 맞는지는 확인해야 한다.",
+    "sources": [
+     "https://koreascience.or.kr/article/JAKO202427157660711.page"
+    ],
+    "checked": false
+   }
+  },
+  {
+   "id": "wfgoose",
+   "zone": "field",
+   "name": "쇠기러기",
+   "sci": "Anser albifrons",
+   "sciChecked": false,
+   "tier": "often",
+   "kind": "bird",
+   "badges": [],
+   "badgesChecked": true,
+   "badgeDetail": {},
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "행동_문헌조사 2",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 11.1 (겨울 탐조 기록). 종별 확인은 안 함",
+   "likes": [
+    {
+     "tile": "paddy",
+     "weight": "strong",
+     "why": "낟알을 먹는다",
+     "from": "기획서 11.1 (기러기)"
+    },
+    {
+     "tile": "water",
+     "weight": "some",
+     "why": "저수지에서 잔다",
+     "from": "행동_문헌조사 2"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "greenhouse",
+     "weight": "strong",
+     "why": "먹이터가 사라진다",
+     "from": "기획서 11.1 (비닐하우스 칸의 설명을 옮김)"
+    }
+   ],
+   "stages": {
+    "visit": "놀라 떼로 날아오른다",
+    "stay": "내려앉아 먹는다",
+    "settle": "큰 무리가 된다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 5.5",
+    "stay": "기획서 5.5",
+    "settle": "기획서 5.5"
+   },
+   "traces": [
+    "footprint",
+    "feather",
+    "dropping"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "낮에 논에서 낟알을 먹고 저수지에서 잔다. 놀라면 떼로 날아오르고, 무리가 클수록 경계가 준다. 기러기류 전체를 기준으로 한 글이다.",
+    "sources": [
+     "https://koreascience.or.kr/article/JAKO202427157660711.page"
+    ],
+    "checked": true
+   }
+  },
+  {
+   "id": "mallard",
+   "zone": "field",
+   "name": "청둥오리",
+   "sci": "Anas platyrhynchos",
+   "sciChecked": false,
+   "tier": "often",
+   "kind": "bird",
+   "badges": [],
+   "badgesChecked": true,
+   "badgeDetail": {},
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 11.1 (겨울 탐조 기록). 종별 확인은 안 함",
+   "likes": [
+    {
+     "tile": "water",
+     "weight": "strong",
+     "why": "물 위에서 쉰다",
+     "from": "짐작"
+    },
+    {
+     "tile": "marsh",
+     "weight": "some",
+     "why": "얕은 물에서 먹는다",
+     "from": "짐작"
+    },
+    {
+     "tile": "paddy",
+     "weight": "some",
+     "why": "낟알을 먹는다",
+     "from": "짐작"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "greenhouse",
+     "weight": "some",
+     "why": "먹이터가 사라진다",
+     "from": "짐작"
+    }
+   ],
+   "stages": {
+    "visit": "경계가 잦다. 먹다가 자주 고개를 든다",
+    "stay": "경계가 줄어든다. 깃이나 털을 다듬고 느긋하게 돌아다닌다",
+    "settle": "무리가 물 위에서 느긋하게 쉰다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 5.5 (모든 종의 틀)",
+    "stay": "기획서 5.5 (모든 종의 틀)",
+    "settle": "짐작"
+   },
+   "traces": [
+    "footprint",
+    "feather",
+    "dropping"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "실제 이야기를 아직 찾지 못했다.",
+    "sources": [],
+    "checked": false
+   }
+  },
+  {
+   "id": "eoreumchi",
+   "zone": "stream",
+   "name": "어름치",
+   "sci": "Hemibarbus mylodon",
+   "sciChecked": false,
+   "tier": "hard",
+   "kind": "fish",
+   "badges": [
+    "천연기념물",
+    "멸종위기 II급"
+   ],
+   "badgesChecked": true,
+   "badgesNote": "받아 둔 멸종위기종 CSV는 2022년 개정 전의 267종 목록이라 어름치가 없다. 2022년 12월 개정(282종)에서 II급으로 새로 지정된 것을 기사와 논문으로 확인했다(2026-11-28).",
+   "badgeDetail": {
+    "천연기념물": "제259호",
+    "멸종위기": "II급 (2022년 12월 목록 개정 때 새로 지정)"
+   },
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 5.1, 11.2 (하천 조사 3%)",
+   "likes": [
+    {
+     "tile": "riffle",
+     "weight": "strong",
+     "why": "여울 위쪽에 돌탑을 쌓는다",
+     "from": "기획서 11.2"
+    },
+    {
+     "tile": "pool",
+     "weight": "strong",
+     "why": "평소에 머문다",
+     "from": "기획서 11.2"
+    },
+    {
+     "tile": "bankwood",
+     "weight": "some",
+     "why": "물가에 숲이 많을수록 잘 나왔다",
+     "from": "기획서 11.2 (예전 모델)"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "weir",
+     "weight": "strong",
+     "why": "여울이 고인 물이 된다",
+     "from": "기획서 11.2"
+    },
+    {
+     "tile": "village",
+     "weight": "strong",
+     "why": "많아지면 떠난다",
+     "from": "기획서 11.2"
+    }
+   ],
+   "itemLikes": [
+    {
+     "item": "fishway",
+     "why": "보가 있어도 오르내릴 수 있다",
+     "from": "기획서 11.2"
+    }
+   ],
+   "stages": {
+    "visit": "깊은 곳이나 돌 틈에 머문다",
+    "stay": "여울로 나온다",
+    "settle": "돌탑을 쌓는다"
+   },
+   "stagesFrom": {
+    "visit": "설계안 7.6 (물고기의 들름은 연출. 기록이 거의 없다)",
+    "stay": "기획서 5.5",
+    "settle": "기획서 5.5"
+   },
+   "traces": [
+    "tower"
+   ],
+   "tracesFrom": "기획서 4.4 (돌탑은 얕은 여울에 있어 물 밖에서 보인다). 이름 tower는 CONTRACT 밖",
+   "story": {
+    "text": "맑고 자갈 깔린 중·상류의 깊은 곳에 산다. 4월 말에서 5월 중순에 여울 위쪽, 물가 돌 근처에 웅덩이를 파고 잔자갈을 쌓는다. 물 깊이는 30~60cm이고, 탑은 길이 35~48cm, 높이 5~12cm다.",
+    "sources": [
+     "https://koreascience.or.kr/article/JAKO202427157670967.page?lang=ko",
+     "https://www.nie.re.kr/nie/pgm/edSpecies/view.do?menuNo=200121&speciesSn=275"
+    ],
+    "checked": true
+   }
+  },
+  {
+   "id": "gamdol",
+   "zone": "stream",
+   "name": "감돌고기",
+   "sci": "Pseudopungtungia nigra",
+   "sciChecked": true,
+   "tier": "hard",
+   "kind": "fish",
+   "badges": [
+    "멸종위기 I급"
+   ],
+   "badgesChecked": true,
+   "badgeDetail": {
+    "멸종위기": "감돌고기 (I급)"
+   },
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 5.1 (하천 조사 2%)",
+   "likes": [
+    {
+     "tile": "riffle",
+     "weight": "strong",
+     "why": "물살이 빠른 여울의 자갈 바닥에 산다",
+     "from": "짐작. 세기는 균형 모의로 맞춤(11월 28일)"
+    },
+    {
+     "tile": "pool",
+     "weight": "some",
+     "why": "머물 자리가 된다",
+     "from": "짐작"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "weir",
+     "weight": "some",
+     "why": "물이 고인다",
+     "from": "짐작"
+    },
+    {
+     "tile": "village",
+     "weight": "some",
+     "why": "물이 흐려진다",
+     "from": "짐작"
+    }
+   ],
+   "stages": {
+    "visit": "깊은 곳이나 돌 틈에 머문다",
+    "stay": "돌 사이를 오가며 먹는다",
+    "settle": "돌 사이를 느긋하게 오간다"
+   },
+   "stagesFrom": {
+    "visit": "설계안 7.6 (물고기의 들름은 연출. 기록이 거의 없다)",
+    "stay": "짐작",
+    "settle": "짐작"
+   },
+   "traces": [],
+   "tracesFrom": "짐작 (물고기의 흔적은 문서에 없다)",
+   "story": {
+    "text": "멸종위기 야생생물 I급이다. 천연기념물은 아니다.",
+    "sources": [
+     "멸종위기종 목록 endangered_species_20241231.csv",
+     "기획서 5.2"
+    ],
+    "checked": true,
+    "thin": true
+   }
+  },
+  {
+   "id": "otter",
+   "zone": "stream",
+   "name": "수달",
+   "sci": "Lutra lutra",
+   "sciChecked": true,
+   "tier": "hard",
+   "kind": "mammal",
+   "badges": [
+    "천연기념물",
+    "멸종위기 I급"
+   ],
+   "badgesChecked": true,
+   "badgesNote": "천연기념물 목록에서 번호가 비어 있다",
+   "badgeDetail": {
+    "천연기념물": "번호 없음",
+    "멸종위기": "수달 (I급)"
+   },
+   "dayPart": [
+    "dusk",
+    "night"
+   ],
+   "dayPartFrom": "기획서 4.2, 행동_문헌조사 3",
+   "hidden": true,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 11.2 (모델이 약해서 발표된 연구로 받침)",
+   "likes": [
+    {
+     "tile": "bankwood",
+     "weight": "strong",
+     "why": "수달이 숨는다",
+     "from": "기획서 11.2"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "village",
+     "weight": "some",
+     "why": "사람 발길이 늘어난다",
+     "from": "짐작"
+    },
+    {
+     "tile": "weir",
+     "weight": "some",
+     "why": "물길이 막힌다",
+     "from": "짐작"
+    }
+   ],
+   "itemLikes": [
+    {
+     "item": "bankgrass",
+     "why": "숨을 곳이 생긴다",
+     "from": "기획서 11.2"
+    }
+   ],
+   "stages": {
+    "visit": "흔적만 남는다",
+    "stay": "해 질 녘에 모습이 보인다",
+    "settle": "새끼를 데리고 다닌다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 5.5",
+    "stay": "기획서 5.5",
+    "settle": "기획서 5.5"
+   },
+   "traces": [
+    "footprint",
+    "dropping"
+   ],
+   "tracesFrom": "기획서 11.2 (배설물과 발자국으로 조사한다)",
+   "story": {
+    "text": "밤에 다니고, 저녁 5~7시에 움직이기 시작한다. 조사는 배설물과 발자국으로 한다. 새끼가 있으면 가족으로 다닌다.",
+    "sources": [
+     "https://www.fnnews.com/news/202609031443305028",
+     "https://research.knu.ac.kr/en/publications/spraint-density-of-the-eurasian-otter-lutra-lutra-is-an-accurate-/"
+    ],
+    "checked": true
+   }
+  },
+  {
+   "id": "mandarin",
+   "zone": "stream",
+   "name": "원앙",
+   "sci": "Aix galericulata",
+   "sciChecked": false,
+   "tier": "seldom",
+   "kind": "bird",
+   "badges": [
+    "천연기념물"
+   ],
+   "badgesChecked": true,
+   "badgeDetail": {
+    "천연기념물": "제327호"
+   },
+   "dayPart": [
+    "day",
+    "dusk"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 11.2 (구역 자료). 종별 확인은 안 함",
+   "likes": [
+    {
+     "tile": "bankwood",
+     "weight": "strong",
+     "why": "원앙이 쉰다",
+     "from": "기획서 11.2"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "village",
+     "weight": "some",
+     "why": "사람 발길이 늘어난다",
+     "from": "짐작"
+    }
+   ],
+   "stages": {
+    "visit": "그늘진 돌 위에 가만히 있다",
+    "stay": "물 위에서 먹는다",
+    "settle": "무리가 된다"
+   },
+   "stagesFrom": {
+    "visit": "설계안 7.6, 행동_문헌조사 3",
+    "stay": "설계안 7.6, 행동_문헌조사 3",
+    "settle": "설계안 7.6, 행동_문헌조사 3"
+   },
+   "seasonMismatch": "원앙이 무리 짓는 것은 겨울이다. 봄 냇가에 맞게 바꿀 것(설계안 7.6)",
+   "traces": [
+    "footprint",
+    "feather",
+    "dropping"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "겨울에는 냇가와 저수지에 무리 지어 있다. 활엽수 나무구멍에 알을 낳는다.",
+    "sources": [
+     "https://koreascience.kr/article/JAKO202109149381477.page?lang=ko"
+    ],
+    "checked": true
+   }
+  },
+  {
+   "id": "ssogari",
+   "zone": "stream",
+   "name": "쏘가리",
+   "sci": "Siniperca scherzeri",
+   "sciChecked": false,
+   "tier": "seldom",
+   "kind": "fish",
+   "badges": [],
+   "badgesChecked": true,
+   "badgesNote": "천연기념물 목록에는 황쏘가리만 있다. 쏘가리 자체는 없다",
+   "badgeDetail": {},
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 5.1 (하천 조사 7%)",
+   "likes": [
+    {
+     "tile": "pool",
+     "weight": "some",
+     "why": "깊은 물에 머문다",
+     "from": "짐작"
+    },
+    {
+     "tile": "riffle",
+     "weight": "some",
+     "why": "여울 가까이에서 먹이를 찾는다",
+     "from": "짐작"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "weir",
+     "weight": "some",
+     "why": "물이 고인다",
+     "from": "짐작"
+    }
+   ],
+   "stages": {
+    "visit": "깊은 곳이나 돌 틈에 머문다",
+    "stay": "바위 그늘에서 먹이를 살핀다",
+    "settle": "물속을 느긋하게 돌아다닌다"
+   },
+   "stagesFrom": {
+    "visit": "설계안 7.6 (물고기의 들름은 연출. 기록이 거의 없다)",
+    "stay": "짐작",
+    "settle": "짐작"
+   },
+   "traces": [],
+   "tracesFrom": "짐작 (물고기의 흔적은 문서에 없다)",
+   "story": {
+    "text": "천연기념물 목록에는 황쏘가리가 있다. 쏘가리는 목록에 없다.",
+    "sources": [
+     "천연기념물 목록 natural_monuments_20250926.csv"
+    ],
+    "checked": true,
+    "thin": true
+   }
+  },
+  {
+   "id": "ayu",
+   "zone": "stream",
+   "name": "은어",
+   "sci": "Plecoglossus altivelis",
+   "sciChecked": false,
+   "tier": "seldom",
+   "kind": "fish",
+   "badges": [],
+   "badgesChecked": true,
+   "badgeDetail": {},
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 5.1 (하천 조사 9%)",
+   "likes": [
+    {
+     "tile": "riffle",
+     "weight": "some",
+     "why": "물살이 있는 곳에서 먹는다",
+     "from": "짐작"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "weir",
+     "weight": "some",
+     "why": "보가 있으면 오르내리기 어렵다",
+     "from": "기획서 11.2 (물고기 길의 까닭을 옮김)"
+    }
+   ],
+   "itemLikes": [
+    {
+     "item": "fishway",
+     "why": "보가 있어도 오르내릴 수 있다",
+     "from": "기획서 11.2"
+    }
+   ],
+   "stages": {
+    "visit": "깊은 곳이나 돌 틈에 머문다",
+    "stay": "물살 센 곳에서 먹는다",
+    "settle": "무리가 물살을 거슬러 오른다"
+   },
+   "stagesFrom": {
+    "visit": "설계안 7.6 (물고기의 들름은 연출. 기록이 거의 없다)",
+    "stay": "짐작",
+    "settle": "짐작"
+   },
+   "traces": [],
+   "tracesFrom": "짐작 (물고기의 흔적은 문서에 없다)",
+   "story": {
+    "text": "하천 조사에서는 조사한 곳의 9%에서 나왔다. 실제 이야기를 더 찾아야 한다.",
+    "sources": [
+     "기획서 5.1"
+    ],
+    "checked": false,
+    "thin": true
+   }
+  },
+  {
+   "id": "pirami",
+   "zone": "stream",
+   "name": "피라미",
+   "sci": "Zacco platypus",
+   "sciChecked": false,
+   "tier": "often",
+   "kind": "fish",
+   "badges": [],
+   "badgesChecked": true,
+   "badgeDetail": {},
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 5.1 (하천 조사 86%)",
+   "likes": [
+    {
+     "tile": "riffle",
+     "weight": "some",
+     "why": "여울에서 먹는다",
+     "from": "기획서 5.5"
+    },
+    {
+     "tile": "pool",
+     "weight": "some",
+     "why": "머물 자리가 된다",
+     "from": "짐작"
+    }
+   ],
+   "dislikes": [],
+   "stages": {
+    "visit": "떼 지어 다닌다",
+    "stay": "여울에서 먹는다",
+    "settle": "수컷이 빛깔을 낸다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 5.5",
+    "stay": "기획서 5.5",
+    "settle": "기획서 5.5"
+   },
+   "traces": [],
+   "tracesFrom": "짐작 (물고기의 흔적은 문서에 없다)",
+   "story": {
+    "text": "수컷은 알 낳을 철에 빛깔이 뚜렷해지고, 수컷끼리 머리를 맞대고 다툰다. 느리고 얕은 모래 바닥에 알을 낳는다.",
+    "sources": [
+     "https://koreascience.or.kr/article/JAKO200610103460887.page?lang=ko"
+    ],
+    "checked": true
+   }
+  },
+  {
+   "id": "galgyeoni",
+   "zone": "stream",
+   "name": "참갈겨니",
+   "sci": "Zacco koreanus",
+   "sciChecked": false,
+   "tier": "often",
+   "kind": "fish",
+   "badges": [],
+   "badgesChecked": true,
+   "badgeDetail": {},
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 5.1 (하천 조사 59%)",
+   "likes": [
+    {
+     "tile": "riffle",
+     "weight": "some",
+     "why": "여울에서 먹는다",
+     "from": "짐작"
+    },
+    {
+     "tile": "bankwood",
+     "weight": "some",
+     "why": "그늘이 있다",
+     "from": "짐작"
+    }
+   ],
+   "dislikes": [],
+   "stages": {
+    "visit": "깊은 곳이나 돌 틈에 머문다",
+    "stay": "떼 지어 여울을 오간다",
+    "settle": "떼가 느긋하게 헤엄친다"
+   },
+   "stagesFrom": {
+    "visit": "설계안 7.6 (물고기의 들름은 연출. 기록이 거의 없다)",
+    "stay": "짐작",
+    "settle": "짐작"
+   },
+   "traces": [],
+   "tracesFrom": "짐작 (물고기의 흔적은 문서에 없다)",
+   "story": {
+    "text": "하천 조사에서는 조사한 곳의 59%에서 나왔다. 실제 이야기를 더 찾아야 한다.",
+    "sources": [
+     "기획서 5.1"
+    ],
+    "checked": false,
+    "thin": true
+   }
+  },
+  {
+   "id": "beodeulchi",
+   "zone": "stream",
+   "name": "버들치",
+   "sci": "Rhynchocypris oxycephalus",
+   "sciChecked": false,
+   "tier": "often",
+   "kind": "fish",
+   "badges": [],
+   "badgesChecked": true,
+   "badgeDetail": {},
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 5.1 (하천 조사 43%)",
+   "likes": [
+    {
+     "tile": "bankwood",
+     "weight": "some",
+     "why": "그늘진 물을 좋아한다",
+     "from": "짐작"
+    },
+    {
+     "tile": "pool",
+     "weight": "some",
+     "why": "머물 자리가 된다",
+     "from": "짐작"
+    }
+   ],
+   "dislikes": [],
+   "stages": {
+    "visit": "깊은 곳이나 돌 틈에 머문다",
+    "stay": "돌 사이에서 먹는다",
+    "settle": "떼가 느긋하게 헤엄친다"
+   },
+   "stagesFrom": {
+    "visit": "설계안 7.6 (물고기의 들름은 연출. 기록이 거의 없다)",
+    "stay": "짐작",
+    "settle": "짐작"
+   },
+   "traces": [],
+   "tracesFrom": "짐작 (물고기의 흔적은 문서에 없다)",
+   "story": {
+    "text": "하천 조사에서는 조사한 곳의 43%에서 나왔다. 실제 이야기를 더 찾아야 한다.",
+    "sources": [
+     "기획서 5.1"
+    ],
+    "checked": false,
+    "thin": true
+   }
+  },
+  {
+   "id": "goral",
+   "zone": "forest",
+   "name": "산양",
+   "sci": "Naemorhedus caudatus",
+   "sciChecked": true,
+   "tier": "hard",
+   "kind": "mammal",
+   "badges": [
+    "천연기념물",
+    "멸종위기 I급"
+   ],
+   "badgesChecked": true,
+   "badgeDetail": {
+    "천연기념물": "제217호",
+    "멸종위기": "산양 (I급)"
+   },
+   "dayPart": [
+    "dawn",
+    "dusk"
+   ],
+   "dayPartFrom": "기획서 4.2, 행동_문헌조사 4",
+   "hidden": true,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "literature",
+   "basisFrom": "기획서 9, 11.3 (좌표가 공개되지 않아 문헌 규칙)",
+   "likes": [
+    {
+     "tile": "rock",
+     "weight": "strong",
+     "why": "올라 되새김한다",
+     "from": "기획서 11.3"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "clearing",
+     "weight": "some",
+     "why": "숲이 끊긴다",
+     "from": "설계안 2.4 (나무 베기의 대가를 옮김)"
+    }
+   ],
+   "itemLikes": [
+    {
+     "item": "pathblock",
+     "why": "사람 소리가 준다. 200m 밖의 소리에도 달아난다",
+     "from": "기획서 11.3"
+    }
+   ],
+   "stages": {
+    "visit": "똥자리만 보인다",
+    "stay": "바위 위에서 되새김한다",
+    "settle": "능선에 서서 내려다본다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 5.5",
+    "stay": "기획서 5.5",
+    "settle": "기획서 5.5"
+   },
+   "traces": [
+    "dropping",
+    "footprint"
+   ],
+   "tracesFrom": "행동_문헌조사 4 (똥자리). 발자국은 짐작",
+   "story": {
+    "text": "해 뜰 때와 해 질 때 가장 많이 움직이고, 한낮에는 바위에서 되새김한다. 같은 자리에 똥을 눈다. 전망 트인 절벽 능선을 좋아하고, 겨울에는 낮은 곳으로 내려온다. 200m쯤 밖의 소리에도 달아난다. 2024~2025년 겨울에는 먹이터 80곳과 쉼터 22곳이 운영됐다.",
+    "sources": [
+     "https://koreascience.or.kr/article/JAKO201534165332939.page?lang=ko",
+     "https://www.khan.co.kr/article/202302051719001",
+     "https://www.kukinews.com/article/view/kuk202504100157",
+     "https://db.koreascholar.com/Article/Detail/447405"
+    ],
+    "checked": true
+   }
+  },
+  {
+   "id": "flyingsquirrel",
+   "zone": "forest",
+   "name": "하늘다람쥐",
+   "sci": "Pteromys volans aluco",
+   "sciChecked": true,
+   "tier": "hard",
+   "kind": "mammal",
+   "badges": [
+    "천연기념물",
+    "멸종위기 II급"
+   ],
+   "badgesChecked": true,
+   "badgeDetail": {
+    "천연기념물": "제328호",
+    "멸종위기": "하늘다람쥐 (II급)"
+   },
+   "dayPart": [
+    "dusk",
+    "night"
+   ],
+   "dayPartFrom": "기획서 4.2, 행동_문헌조사 4",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "literature",
+   "basisFrom": "기획서 9, 11.3 (좌표가 공개되지 않아 문헌 규칙)",
+   "likes": [
+    {
+     "tile": "conifer",
+     "weight": "strong",
+     "why": "가지 위에 둥지를 튼다",
+     "from": "기획서 11.3"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "clearing",
+     "weight": "some",
+     "why": "큰 나무가 사라진다",
+     "from": "설계안 2.4 (나무 베기의 대가를 옮김)"
+    }
+   ],
+   "itemLikes": [
+    {
+     "item": "nestbox",
+     "why": "둥지로 쓸 수 있다. 쓰는 비율이 낮다는 연구가 있어 효과는 작게 그린다",
+     "from": "기획서 11.3, 행동_문헌조사 4"
+    }
+   ],
+   "stages": {
+    "visit": "나무구멍에서 얼굴만 내민다",
+    "stay": "가지를 오르내린다",
+    "settle": "나무 사이를 난다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 5.5",
+    "stay": "기획서 5.5",
+    "settle": "기획서 5.5"
+   },
+   "traces": [
+    "feather",
+    "dropping"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "밤에 다니고, 해 진 뒤 나와 해 뜨기 전에 돌아간다. 나무에서 나무로 20~30m를 난다. 나무구멍과 가지 위에 둥지를 튼다. 원주 조사에서는 둥지 15곳 가운데 13곳이 조림지 나무의 가지 위 둥지였다. 둥지 상자는 국립공원에서 설치하지만 실제로 쓰는 비율이 낮다는 연구가 있다.",
+    "sources": [
+     "https://www.nie.re.kr/nie/pgm/edSpecies/view.do?menuNo=200121&speciesSn=20",
+     "https://koreascience.kr/article/JAKO201336049119162.page?lang=en"
+    ],
+    "checked": true,
+    "unverifiedPart": "둥지 상자를 쓰는 비율이 낮다는 연구는 검색 요약만 봤다. 원문 확인이 필요하다"
+   }
+  },
+  {
+   "id": "scopsowl",
+   "zone": "forest",
+   "name": "소쩍새",
+   "sci": "Otus sunia",
+   "sciChecked": false,
+   "tier": "seldom",
+   "kind": "bird",
+   "badges": [
+    "천연기념물"
+   ],
+   "badgesChecked": true,
+   "badgeDetail": {
+    "천연기념물": "제324-6호"
+   },
+   "dayPart": [
+    "night"
+   ],
+   "dayPartFrom": "기획서 4.2, 행동_문헌조사 4",
+   "hidden": true,
+   "hiddenFrom": "1차 기획서 6.4 (소리로 만난다)",
+   "basis": "model",
+   "basisFrom": "설계안 2.4 (모델: 소쩍새)",
+   "likes": [
+    {
+     "tile": "broadleaf",
+     "weight": "some",
+     "why": "울며 머물 숲이 된다",
+     "from": "짐작"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "clearing",
+     "weight": "some",
+     "why": "숲이 끊긴다",
+     "from": "짐작"
+    }
+   ],
+   "stages": {
+    "visit": "멀리서 한두 번 운다",
+    "stay": "가까이에서 운다",
+    "settle": "밤새 운다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 5.5",
+    "stay": "기획서 5.5",
+    "settle": "기획서 5.5"
+   },
+   "traces": [
+    "feather"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "여름새다. 4월 초에서 9월 말, 밤 8시부터 새벽 6시까지 운다. 5~6월에는 밤새 운다. 낮에는 가지에서 잔다.",
+    "sources": [
+     "https://koreascience.or.kr/article/JAKO201909255112147.page?lang=ko"
+    ],
+    "checked": true
+   }
+  },
+  {
+   "id": "hawkowl",
+   "zone": "forest",
+   "name": "솔부엉이",
+   "sci": "Ninox japonica",
+   "sciChecked": false,
+   "tier": "seldom",
+   "kind": "bird",
+   "badges": [
+    "천연기념물"
+   ],
+   "badgesChecked": true,
+   "badgeDetail": {
+    "천연기념물": "제324-3호"
+   },
+   "dayPart": [
+    "night"
+   ],
+   "dayPartFrom": "짐작 (국내 수치를 찾지 못함. 행동_문헌조사 6)",
+   "hidden": true,
+   "hiddenFrom": "행동_문헌조사 4 (들름 장면이 울음만 들린다)",
+   "basis": "model",
+   "basisFrom": "기획서 11.3 (125지점)",
+   "likes": [
+    {
+     "tile": "broadleaf",
+     "weight": "some",
+     "why": "큰 나무의 구멍을 쓴다",
+     "from": "행동_문헌조사 4 (절반만 맞다)"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "clearing",
+     "weight": "some",
+     "why": "숲이 끊긴다",
+     "from": "짐작"
+    }
+   ],
+   "itemLikes": [
+    {
+     "item": "nestbox",
+     "why": "인공 새집도 쓴다",
+     "from": "기획서 11.3, 행동_문헌조사 4"
+    }
+   ],
+   "stages": {
+    "visit": "울음만 들린다",
+    "stay": "가지에 앉은 모습이 보인다",
+    "settle": "나무구멍을 드나든다"
+   },
+   "stagesFrom": {
+    "visit": "행동_문헌조사 4",
+    "stay": "행동_문헌조사 4",
+    "settle": "행동_문헌조사 4"
+   },
+   "traces": [
+    "feather"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "여름새다. 큰 나무의 구멍에 알을 낳고, 인공 새집도 쓴다. 출처 주소가 문서에 없다.",
+    "sources": [],
+    "checked": false
+   }
+  },
+  {
+   "id": "badger",
+   "zone": "forest",
+   "name": "오소리",
+   "sci": "Meles leucurus",
+   "sciChecked": false,
+   "tier": "seldom",
+   "kind": "mammal",
+   "badges": [],
+   "badgesChecked": true,
+   "badgeDetail": {},
+   "dayPart": [
+    "night"
+   ],
+   "dayPartFrom": "기획서 4.2, 행동_문헌조사 4",
+   "hidden": true,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 11.3 (429지점)",
+   "likes": [
+    {
+     "tile": "broadleaf",
+     "weight": "strong",
+     "why": "오소리가 산다",
+     "from": "기획서 11.3"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "clearing",
+     "weight": "some",
+     "why": "숲이 끊긴다",
+     "from": "짐작"
+    }
+   ],
+   "stages": {
+    "visit": "똥굴만 보인다",
+    "stay": "굴 앞에 나온다",
+    "settle": "가족이 굴을 드나든다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 5.5",
+    "stay": "기획서 5.5",
+    "settle": "기획서 5.5"
+   },
+   "traces": [
+    "dropping",
+    "footprint"
+   ],
+   "tracesFrom": "행동_문헌조사 4 (숲길 옆 구덩이 똥). 발자국은 짐작",
+   "story": {
+    "text": "밤에 다니고 굴에 산다. 숲길 옆에 구덩이를 파고 똥을 눈다. 가리왕산 굴 36곳은 바위와 나무 가까이, 아래층 풀이 빽빽하고 가파른 활엽수림에 있었다. 겨울잠을 잔다.",
+    "sources": [
+     "https://koreascience.kr/article/JAKO202313864362115.page?lang=ko",
+     "https://complete.bioone.org/journals/wildlife-biology/volume-2021/issue-4/wlb.00910/Ecological-factors-influencing-the-selection-of-sett-location-by-the/10.2981/wlb.00910.full"
+    ],
+    "checked": true
+   }
+  },
+  {
+   "id": "roedeer",
+   "zone": "forest",
+   "name": "노루",
+   "sci": "Capreolus pygargus",
+   "sciChecked": false,
+   "tier": "seldom",
+   "kind": "mammal",
+   "badges": [],
+   "badgesChecked": true,
+   "badgesNote": "목록에는 사향노루만 있다. 노루는 없다",
+   "badgeDetail": {},
+   "dayPart": [
+    "dawn",
+    "dusk"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 11.3 (427지점)",
+   "likes": [
+    {
+     "tile": "clearing",
+     "weight": "some",
+     "why": "풀을 뜯는다",
+     "from": "짐작"
+    },
+    {
+     "tile": "broadleaf",
+     "weight": "some",
+     "why": "숨을 곳이 된다",
+     "from": "짐작"
+    }
+   ],
+   "dislikes": [],
+   "stages": {
+    "visit": "경계가 잦다. 먹다가 자주 고개를 든다",
+    "stay": "경계가 줄어든다. 깃이나 털을 다듬고 느긋하게 돌아다닌다",
+    "settle": "풀밭 가장자리에서 느긋하게 풀을 뜯는다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 5.5 (모든 종의 틀)",
+    "stay": "기획서 5.5 (모든 종의 틀)",
+    "settle": "짐작"
+   },
+   "traces": [
+    "footprint",
+    "dropping"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "실제 이야기를 아직 찾지 못했다. 국립공원 조사에서 427지점에 나온다.",
+    "sources": [
+     "기획서 11.3"
+    ],
+    "checked": false,
+    "thin": true
+   }
+  },
+  {
+   "id": "chipmunk",
+   "zone": "forest",
+   "name": "다람쥐",
+   "sci": "Eutamias sibiricus",
+   "sciChecked": false,
+   "tier": "often",
+   "kind": "mammal",
+   "badges": [],
+   "badgesChecked": true,
+   "badgesNote": "목록에는 하늘다람쥐만 있다. 다람쥐는 없다",
+   "badgeDetail": {},
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "기획서 4.2",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "설계안 2.4 (모델: 다람쥐)",
+   "likes": [
+    {
+     "tile": "broadleaf",
+     "weight": "strong",
+     "why": "도토리가 열린다",
+     "from": "기획서 11.3"
+    },
+    {
+     "tile": "rock",
+     "weight": "some",
+     "why": "바위 위에서 살핀다",
+     "from": "설계안 7.6 (들름 장면)"
+    }
+   ],
+   "dislikes": [],
+   "stages": {
+    "visit": "바위 위에서 살핀다",
+    "stay": "먹이를 먹는다",
+    "settle": "볼이 불룩하게 도토리를 나른다"
+   },
+   "stagesFrom": {
+    "visit": "설계안 7.6",
+    "stay": "설계안 7.6",
+    "settle": "설계안 7.6"
+   },
+   "seasonMismatch": "도토리를 나르는 것은 가을이다. 여름 숲에 맞게 바꿀 것(설계안 7.6)",
+   "traces": [
+    "footprint"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "낮에 다니고 사람 가까이에서도 움직인다. 가을에 볼주머니로 도토리를 옮겨 묻는다. 겨울잠을 잔다.",
+    "sources": [
+     "https://koreascience.kr/article/JAKO202313864362115.page?lang=ko"
+    ],
+    "checked": true
+   }
+  },
+  {
+   "id": "redsquirrel",
+   "zone": "forest",
+   "name": "청설모",
+   "sci": "Sciurus vulgaris",
+   "sciChecked": false,
+   "tier": "often",
+   "kind": "mammal",
+   "badges": [],
+   "badgesChecked": true,
+   "badgeDetail": {},
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "짐작 (구역 자료에 있을 것으로 봄)",
+   "likes": [
+    {
+     "tile": "conifer",
+     "weight": "some",
+     "why": "나무 위에서 다닌다",
+     "from": "짐작"
+    },
+    {
+     "tile": "broadleaf",
+     "weight": "some",
+     "why": "도토리를 먹는다",
+     "from": "짐작"
+    }
+   ],
+   "dislikes": [],
+   "stages": {
+    "visit": "경계가 잦다. 먹다가 자주 고개를 든다",
+    "stay": "경계가 줄어든다. 깃이나 털을 다듬고 느긋하게 돌아다닌다",
+    "settle": "나무 위를 오르내린다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 5.5 (모든 종의 틀)",
+    "stay": "기획서 5.5 (모든 종의 틀)",
+    "settle": "짐작"
+   },
+   "traces": [
+    "footprint"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "실제 이야기를 아직 찾지 못했다.",
+    "sources": [],
+    "checked": false
+   }
+  },
+  {
+   "id": "hare",
+   "zone": "forest",
+   "name": "멧토끼",
+   "sci": "Lepus coreanus",
+   "sciChecked": false,
+   "tier": "often",
+   "kind": "mammal",
+   "badges": [],
+   "badgesChecked": true,
+   "badgeDetail": {},
+   "dayPart": [
+    "dusk",
+    "night"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "짐작 (구역 자료에 있을 것으로 봄)",
+   "likes": [
+    {
+     "tile": "clearing",
+     "weight": "some",
+     "why": "풀을 뜯는다",
+     "from": "짐작"
+    }
+   ],
+   "dislikes": [],
+   "stages": {
+    "visit": "경계가 잦다. 먹다가 자주 고개를 든다",
+    "stay": "경계가 줄어든다. 깃이나 털을 다듬고 느긋하게 돌아다닌다",
+    "settle": "풀밭에서 느긋하게 풀을 뜯는다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 5.5 (모든 종의 틀)",
+    "stay": "기획서 5.5 (모든 종의 틀)",
+    "settle": "짐작"
+   },
+   "traces": [
+    "footprint",
+    "dropping"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "실제 이야기를 아직 찾지 못했다.",
+    "sources": [],
+    "checked": false
+   }
+  },
+  {
+   "id": "ghostcrab",
+   "zone": "coast",
+   "name": "달랑게",
+   "sci": "Ocypode stimpsoni",
+   "sciChecked": false,
+   "tier": "hard",
+   "kind": "crab",
+   "badges": [],
+   "badgesChecked": true,
+   "badgeDetail": {},
+   "dayPart": [
+    "night"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 11.4 (갯벌 바닥 동물 조사 498지점)",
+   "likes": [
+    {
+     "tile": "sand",
+     "weight": "strong",
+     "why": "모래 바닥에만 산다",
+     "from": "기획서 11.4 (모래 11%, 펄 0%)"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "mud",
+     "weight": "strong",
+     "why": "펄을 늘리면 떠난다",
+     "from": "기획서 11.4"
+    },
+    {
+     "tile": "farmflat",
+     "weight": "some",
+     "why": "갯벌이 막히고 덮인다",
+     "from": "기획서 11.4"
+    }
+   ],
+   "stages": {
+    "visit": "구멍 근처에서 살핀다",
+    "stay": "모래 위로 나와 먹는다",
+    "settle": "구멍이 늘고 무리가 퍼진다"
+   },
+   "stagesFrom": {
+    "visit": "짐작",
+    "stay": "짐작",
+    "settle": "짐작"
+   },
+   "traces": [
+    "footprint"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "모래 바닥에서만 나온다. 조사한 곳 가운데 펄 바닥에서는 0%, 모래 바닥에서는 11%였다. 해양보호생물인지는 확인할 것이다.",
+    "sources": [
+     "기획서 11.4, 설계안 2.4"
+    ],
+    "checked": false
+   }
+  },
+  {
+   "id": "spoonbillsandpiper",
+   "zone": "coast",
+   "name": "넓적부리도요",
+   "sci": "Eurynorhynchus pygmeus",
+   "sciChecked": true,
+   "tier": "hard",
+   "kind": "bird",
+   "badges": [
+    "멸종위기 I급"
+   ],
+   "badgesChecked": true,
+   "badgeDetail": {
+    "멸종위기": "넓적부리도요 (I급)"
+   },
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "literature",
+   "basisFrom": "짐작 (문서에 종별 자료 언급 없음. 지나가는 새라 문헌 규칙으로 가정)",
+   "likes": [
+    {
+     "tile": "mud",
+     "weight": "some",
+     "why": "갯벌에서 먹이를 찾는다",
+     "from": "짐작"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "farmflat",
+     "weight": "strong",
+     "why": "갯벌이 막히고 덮인다",
+     "from": "기획서 11.4"
+    }
+   ],
+   "itemLikes": [
+    {
+     "item": "clam",
+     "why": "조개를 남기면 도요새가 먹는다",
+     "from": "기획서 8.1"
+    }
+   ],
+   "stages": {
+    "visit": "경계가 잦다. 먹다가 자주 고개를 든다",
+    "stay": "경계가 줄어든다. 깃이나 털을 다듬고 느긋하게 돌아다닌다",
+    "settle": "해마다 들르는 쉼터가 된다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 5.5 (모든 종의 틀)",
+    "stay": "기획서 5.5 (모든 종의 틀)",
+    "settle": "기획서 11.4"
+   },
+   "traces": [
+    "footprint",
+    "feather"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "멸종위기 야생생물 I급이다. 먼 길을 가는 도요새가 가을에 쉬어 간다. 바닷가에서는 지나가는 새라, 깃듦은 해마다 들르는 쉼터가 됐다는 뜻이다.",
+    "sources": [
+     "멸종위기종 목록 endangered_species_20241231.csv",
+     "기획서 10, 11.4"
+    ],
+    "checked": false
+   }
+  },
+  {
+   "id": "seal",
+   "zone": "coast",
+   "name": "점박이물범",
+   "sci": "Phoca largha",
+   "sciChecked": true,
+   "tier": "hard",
+   "kind": "mammal",
+   "badges": [
+    "천연기념물",
+    "멸종위기 II급"
+   ],
+   "badgesChecked": true,
+   "badgesNote": "멸종위기종 목록에는 '물범'(Phoca largha)으로 올라 있어 학명으로 맞췄다",
+   "badgeDetail": {
+    "천연기념물": "제331호",
+    "멸종위기": "물범 (II급)"
+   },
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "literature",
+   "basisFrom": "기획서 9, 11.4 (공개 기록 34건뿐이라 문헌 규칙)",
+   "likes": [
+    {
+     "tile": "sand",
+     "weight": "some",
+     "why": "쉴 자리가 된다. 바위에서 쉰다는 조사는 있으나 바위 칸이 없다",
+     "from": "짐작"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "farmflat",
+     "weight": "some",
+     "why": "갯벌이 막히고 덮인다",
+     "from": "짐작"
+    }
+   ],
+   "stages": {
+    "visit": "경계가 잦다. 먹다가 자주 고개를 든다",
+    "stay": "경계가 줄어든다. 깃이나 털을 다듬고 느긋하게 돌아다닌다",
+    "settle": "바위 위에서 느긋하게 쉰다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 5.5 (모든 종의 틀)",
+    "stay": "기획서 5.5 (모든 종의 틀)",
+    "settle": "짐작 (4~11월 썰물 때 바위에서 쉰다는 조사, 기획서 11.4)"
+   },
+   "traces": [
+    "footprint"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "천연기념물이고 멸종위기 II급이다(멸종위기 목록에는 물범으로 올라 있다). 4~11월 썰물 때 바위에서 쉰다는 조사가 있다. 쉴 자리가 모자라 인공쉼터를 만든 사례가 있다. 공개된 기록은 34건뿐이다.",
+    "sources": [
+     "천연기념물 목록 natural_monuments_20250926.csv",
+     "멸종위기종 목록 endangered_species_20241231.csv",
+     "기획서 11.4, 설계안 2.5"
+    ],
+    "checked": false
+   }
+  },
+  {
+   "id": "rugosa",
+   "zone": "coast",
+   "name": "해당화",
+   "sci": "Rosa rugosa",
+   "sciChecked": false,
+   "tier": "seldom",
+   "kind": "plant",
+   "badges": [],
+   "badgesChecked": true,
+   "badgeDetail": {},
+   "dayPart": [
+    "dawn",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "dayPartFrom": "짐작 (풀은 늘 있다)",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 11.4 (염생식물 조사 97지점)",
+   "likes": [
+    {
+     "tile": "dune",
+     "weight": "strong",
+     "why": "모래 언덕에서 자란다",
+     "from": "기획서 11.4"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "farmflat",
+     "weight": "some",
+     "why": "갯벌이 막히고 덮인다",
+     "from": "기획서 11.4"
+    }
+   ],
+   "itemLikes": [
+    {
+     "item": "sandfence",
+     "why": "모래가 쌓여 언덕이 자란다",
+     "from": "기획서 11.4"
+    }
+   ],
+   "stages": {
+    "visit": "싹이 튼다",
+    "stay": "자란다",
+    "settle": "군락을 이뤄 물든다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 11.4",
+    "stay": "기획서 11.4",
+    "settle": "기획서 11.4"
+   },
+   "traces": [],
+   "tracesFrom": "짐작 (풀은 번진다. 흔적 없음)",
+   "story": {
+    "text": "모래 언덕에서 자란다. 염생식물 조사에서 97지점에 나온다.",
+    "sources": [
+     "기획서 11.4"
+    ],
+    "checked": false,
+    "thin": true
+   }
+  },
+  {
+   "id": "fiddler",
+   "zone": "coast",
+   "name": "농게",
+   "sci": "Uca arcuata",
+   "sciChecked": false,
+   "tier": "seldom",
+   "kind": "crab",
+   "badges": [],
+   "badgesChecked": true,
+   "badgesNote": "멸종위기 목록에는 흰발농게만 있다. 농게는 없다",
+   "badgeDetail": {},
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 11.4 (갯벌 바닥 동물 조사)",
+   "likes": [
+    {
+     "tile": "mud",
+     "weight": "strong",
+     "why": "펄에 산다. 조사한 곳의 31%",
+     "from": "기획서 11.4"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "sand",
+     "weight": "some",
+     "why": "모래 바닥에서는 3%뿐이다",
+     "from": "기획서 11.4"
+    },
+    {
+     "tile": "farmflat",
+     "weight": "some",
+     "why": "갯벌이 막히고 덮인다",
+     "from": "기획서 11.4"
+    }
+   ],
+   "stages": {
+    "visit": "구멍 근처에서 살핀다",
+    "stay": "갯벌 위로 나와 먹는다",
+    "settle": "구멍이 늘고 무리가 퍼진다"
+   },
+   "stagesFrom": {
+    "visit": "짐작",
+    "stay": "짐작",
+    "settle": "짐작"
+   },
+   "traces": [
+    "footprint"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "펄 바닥에서 가장 많이 나온다. 조사한 곳 가운데 펄 31%, 섞인 바닥 5%, 모래 3%였다. 멸종위기 목록에 있는 것은 흰발농게이고 농게는 목록에 없다.",
+    "sources": [
+     "기획서 11.4",
+     "멸종위기종 목록 endangered_species_20241231.csv"
+    ],
+    "checked": false
+   }
+  },
+  {
+   "id": "sandbubbler",
+   "zone": "coast",
+   "name": "엽낭게",
+   "sci": "Scopimera globosa",
+   "sciChecked": false,
+   "tier": "seldom",
+   "kind": "crab",
+   "badges": [],
+   "badgesChecked": true,
+   "badgeDetail": {},
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 11.4 (갯벌 바닥 동물 조사)",
+   "likes": [
+    {
+     "tile": "sand",
+     "weight": "strong",
+     "why": "모래에 산다. 조사한 곳의 19%",
+     "from": "기획서 11.4"
+    },
+    {
+     "tile": "mixed",
+     "weight": "some",
+     "why": "섞인 바닥에서 14%",
+     "from": "기획서 11.4"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "mud",
+     "weight": "some",
+     "why": "펄에서는 1%뿐이다",
+     "from": "기획서 11.4"
+    }
+   ],
+   "stages": {
+    "visit": "구멍 근처에서 살핀다",
+    "stay": "모래 위로 나와 먹는다",
+    "settle": "구멍이 늘고 무리가 퍼진다"
+   },
+   "stagesFrom": {
+    "visit": "짐작",
+    "stay": "짐작",
+    "settle": "짐작"
+   },
+   "traces": [
+    "footprint"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "모래 바닥에서 가장 많이 나온다. 조사한 곳 가운데 펄 1%, 섞인 바닥 14%, 모래 19%였다.",
+    "sources": [
+     "기획서 11.4"
+    ],
+    "checked": false,
+    "thin": true
+   }
+  },
+  {
+   "id": "spoonbill",
+   "zone": "coast",
+   "name": "저어새",
+   "sci": "Platalea minor",
+   "sciChecked": true,
+   "tier": "seldom",
+   "kind": "bird",
+   "badges": [
+    "천연기념물",
+    "멸종위기 I급"
+   ],
+   "badgesChecked": true,
+   "badgeDetail": {
+    "천연기념물": "제205-1호",
+    "멸종위기": "저어새 (I급)"
+   },
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 11.4 (새 조사 71지점)",
+   "likes": [
+    {
+     "tile": "mud",
+     "weight": "some",
+     "why": "얕은 갯벌에서 먹이를 찾는다",
+     "from": "짐작"
+    },
+    {
+     "tile": "channel",
+     "weight": "some",
+     "why": "물길 가에서 먹이를 찾는다",
+     "from": "짐작"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "farmflat",
+     "weight": "some",
+     "why": "갯벌이 막히고 덮인다",
+     "from": "기획서 11.4"
+    }
+   ],
+   "stages": {
+    "visit": "경계가 잦다. 먹다가 자주 고개를 든다",
+    "stay": "경계가 줄어든다. 깃이나 털을 다듬고 느긋하게 돌아다닌다",
+    "settle": "얕은 물에서 부리를 휘저으며 먹는다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 5.5 (모든 종의 틀)",
+    "stay": "기획서 5.5 (모든 종의 틀)",
+    "settle": "짐작"
+   },
+   "traces": [
+    "footprint",
+    "feather"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "멸종위기 야생생물 I급이다. 번식지는 천연기념물로 지정돼 있다. 강화갯벌 및 저어새번식지(제419호), 영광 칠산도 괭이갈매기·노랑부리백로·저어새 번식지(제389호)가 있다.",
+    "sources": [
+     "멸종위기종 목록 endangered_species_20241231.csv",
+     "천연기념물 목록 natural_monuments_20250926.csv"
+    ],
+    "checked": true
+   }
+  },
+  {
+   "id": "reed",
+   "zone": "coast",
+   "name": "갈대",
+   "sci": "Phragmites australis",
+   "sciChecked": false,
+   "tier": "often",
+   "kind": "plant",
+   "badges": [],
+   "badgesChecked": true,
+   "badgeDetail": {},
+   "dayPart": [
+    "dawn",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "dayPartFrom": "짐작 (풀은 늘 있다)",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 11.4 (염생식물 조사 387지점)",
+   "likes": [
+    {
+     "tile": "mud",
+     "weight": "some",
+     "why": "펄에서 자란다",
+     "from": "짐작"
+    },
+    {
+     "tile": "mixed",
+     "weight": "some",
+     "why": "자랄 바닥이 된다",
+     "from": "짐작"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "farmflat",
+     "weight": "some",
+     "why": "갯벌이 막히고 덮인다",
+     "from": "기획서 11.4"
+    }
+   ],
+   "stages": {
+    "visit": "싹이 튼다",
+    "stay": "자란다",
+    "settle": "군락을 이뤄 물든다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 11.4",
+    "stay": "기획서 11.4",
+    "settle": "기획서 11.4"
+   },
+   "traces": [],
+   "tracesFrom": "짐작 (풀은 번진다. 흔적 없음)",
+   "story": {
+    "text": "염생식물 조사에서 387지점에 나온다.",
+    "sources": [
+     "기획서 11.4"
+    ],
+    "checked": false,
+    "thin": true
+   }
+  },
+  {
+   "id": "suaeda",
+   "zone": "coast",
+   "name": "칠면초",
+   "sci": "Suaeda japonica",
+   "sciChecked": false,
+   "tier": "often",
+   "kind": "plant",
+   "badges": [],
+   "badgesChecked": true,
+   "badgeDetail": {},
+   "dayPart": [
+    "dawn",
+    "day",
+    "dusk",
+    "night"
+   ],
+   "dayPartFrom": "짐작 (풀은 늘 있다)",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 11.4 (염생식물 조사 113지점)",
+   "likes": [
+    {
+     "tile": "mud",
+     "weight": "strong",
+     "why": "펄에서 자란다",
+     "from": "기획서 11.4"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "farmflat",
+     "weight": "some",
+     "why": "갯벌이 막히고 덮인다",
+     "from": "기획서 11.4"
+    }
+   ],
+   "stages": {
+    "visit": "싹이 튼다",
+    "stay": "자란다",
+    "settle": "군락을 이뤄 물든다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 11.4",
+    "stay": "기획서 11.4",
+    "settle": "기획서 11.4"
+   },
+   "traces": [],
+   "tracesFrom": "짐작 (풀은 번진다. 흔적 없음)",
+   "story": {
+    "text": "염생식물 조사에서 113지점에 나온다. 가을에 붉게 물드는지는 확인할 것이다.",
+    "sources": [
+     "기획서 11.4, 설계안 2.4"
+    ],
+    "checked": false,
+    "thin": true
+   }
+  },
+  {
+   "id": "mudcrab",
+   "zone": "coast",
+   "name": "칠게",
+   "sci": "Macrophthalmus japonicus",
+   "sciChecked": false,
+   "tier": "often",
+   "kind": "crab",
+   "badges": [],
+   "badgesChecked": true,
+   "badgeDetail": {},
+   "dayPart": [
+    "day"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "기획서 11.4 (갯벌 바닥 동물 조사)",
+   "likes": [
+    {
+     "tile": "mud",
+     "weight": "strong",
+     "why": "펄에서 85%",
+     "from": "기획서 11.4"
+    },
+    {
+     "tile": "mixed",
+     "weight": "strong",
+     "why": "섞인 바닥에서 76%",
+     "from": "기획서 11.4"
+    },
+    {
+     "tile": "sand",
+     "weight": "some",
+     "why": "모래에서는 22%",
+     "from": "기획서 11.4"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "farmflat",
+     "weight": "some",
+     "why": "갯벌이 막히고 덮인다",
+     "from": "기획서 11.4"
+    }
+   ],
+   "stages": {
+    "visit": "구멍 근처에서 살핀다",
+    "stay": "갯벌 위로 나와 먹는다",
+    "settle": "구멍이 늘고 무리가 퍼진다"
+   },
+   "stagesFrom": {
+    "visit": "짐작",
+    "stay": "짐작",
+    "settle": "짐작"
+   },
+   "traces": [
+    "footprint"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "펄과 섞인 바닥에서 많이 나온다. 조사한 곳 가운데 펄 85%, 섞인 바닥 76%, 모래 22%였다.",
+    "sources": [
+     "기획서 11.4"
+    ],
+    "checked": false,
+    "thin": true
+   }
+  },
+  {
+   "id": "heron",
+   "zone": "coast",
+   "name": "왜가리",
+   "sci": "Ardea cinerea",
+   "sciChecked": false,
+   "tier": "often",
+   "kind": "bird",
+   "badges": [],
+   "badgesChecked": true,
+   "badgeDetail": {},
+   "dayPart": [
+    "dawn",
+    "day",
+    "dusk"
+   ],
+   "dayPartFrom": "짐작",
+   "hidden": false,
+   "hiddenFrom": "1차 기획서 6.4",
+   "basis": "model",
+   "basisFrom": "짐작 (새 조사에 있을 것으로 봄)",
+   "likes": [
+    {
+     "tile": "channel",
+     "weight": "some",
+     "why": "물가에서 먹이를 기다린다",
+     "from": "짐작"
+    },
+    {
+     "tile": "mud",
+     "weight": "some",
+     "why": "갯벌에서 먹이를 찾는다",
+     "from": "짐작"
+    }
+   ],
+   "dislikes": [
+    {
+     "tile": "farmflat",
+     "weight": "some",
+     "why": "갯벌이 막히고 덮인다",
+     "from": "기획서 11.4"
+    }
+   ],
+   "stages": {
+    "visit": "경계가 잦다. 먹다가 자주 고개를 든다",
+    "stay": "경계가 줄어든다. 깃이나 털을 다듬고 느긋하게 돌아다닌다",
+    "settle": "물가에 서서 오래 기다린다"
+   },
+   "stagesFrom": {
+    "visit": "기획서 5.5 (모든 종의 틀)",
+    "stay": "기획서 5.5 (모든 종의 틀)",
+    "settle": "짐작"
+   },
+   "traces": [
+    "footprint",
+    "feather"
+   ],
+   "tracesFrom": "짐작",
+   "story": {
+    "text": "실제 이야기를 아직 찾지 못했다.",
+    "sources": [],
+    "checked": false
+   }
+  }
+ ]
+}

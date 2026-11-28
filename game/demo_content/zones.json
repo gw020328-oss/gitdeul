@@ -1,0 +1,595 @@
+{
+  "zones": [
+    {
+      "id": "field",
+      "name": "겨울 들녘",
+      "season": "겨울",
+      "order": 1,
+      "walk": "논둑을 걷는다",
+      "dilemma": "넓이를 어떻게 나눌까",
+      "aiDetail": "count",
+      "aiSays": "무엇을 몇 칸 바꿀지까지 말해 준다",
+      "hardReason": "거의 없다. 배우는 곳이다",
+      "title": "들녘지기",
+      "expandCost": "아주 많이",
+      "tiles": [
+        {
+          "id": "paddy",
+          "name": "논",
+          "goodFor": "추수한 논의 낟알이 두루미와 기러기의 먹이다",
+          "costLevel": "조금",
+          "from": "기획서 11.1"
+        },
+        {
+          "id": "marsh",
+          "name": "습지",
+          "goodFor": "황새가 얕은 물을 걸으며 물고기를 잡는다",
+          "costLevel": "조금",
+          "from": "기획서 11.1"
+        },
+        {
+          "id": "water",
+          "name": "물",
+          "goodFor": "큰고니가 내려앉는다",
+          "costLevel": "조금",
+          "from": "기획서 11.1"
+        },
+        {
+          "id": "reedbed",
+          "name": "갈대밭",
+          "goodFor": "숨을 곳이 된다",
+          "costLevel": "조금",
+          "from": "기획서 11.1"
+        },
+        {
+          "id": "grass",
+          "name": "풀밭",
+          "goodFor": "황조롱이가 들쥐를 잡는다",
+          "costLevel": "조금",
+          "from": "기획서 11.1"
+        },
+        {
+          "id": "wood",
+          "name": "숲",
+          "goodFor": "너무 넓으면 시야를 막아 큰 새가 꺼린다",
+          "costLevel": "조금",
+          "from": "기획서 11.1"
+        },
+        {
+          "id": "house",
+          "name": "집",
+          "goodFor": "사람이 사는 칸이다. 옮길 수 없다",
+          "costLevel": null,
+          "from": "기획서 3 (집은 옮길 수 없다)",
+          "fixed": true
+        },
+        {
+          "id": "greenhouse",
+          "name": "비닐하우스",
+          "goodFor": "돈이 된다. 먹이터가 사라진다",
+          "costLevel": "많이",
+          "from": "기획서 11.1, 8.3",
+          "earns": true
+        }
+      ],
+      "items": [
+        {
+          "id": "watergate",
+          "name": "물꼬",
+          "placeOn": [
+            "paddy"
+          ],
+          "does": "그 논에 물을 얕게 댄다",
+          "kind": "care",
+          "costLevel": "보통",
+          "from": "기획서 11.1"
+        },
+        {
+          "id": "signpost",
+          "name": "푯말",
+          "placeOn": [
+            "*"
+          ],
+          "does": "둘레 칸에 사람 발길이 준다. 집 가까운 칸에도 이웃이 앉는다",
+          "kind": "care",
+          "costLevel": "보통",
+          "from": "기획서 11.1"
+        },
+        {
+          "id": "screen",
+          "name": "가림막",
+          "placeOn": [
+            "house"
+          ],
+          "does": "시야를 가려 방해를 줄인다",
+          "kind": "care",
+          "costLevel": "보통",
+          "from": "기획서 11.1 (놓는 곳은 길이나 집 쪽. 길 칸은 아직 없어 집으로 둠)"
+        }
+      ],
+      "earn": {
+        "big": {
+          "id": "greenhouse",
+          "name": "비닐하우스",
+          "price": "먹이터가 사라진다",
+          "from": "기획서 8.1, 11.1"
+        },
+        "small": {
+          "id": "straw",
+          "name": "볏짚 팔기",
+          "leaveFor": "두루미가 먹는다",
+          "from": "기획서 8.1"
+        },
+        "guest": {
+          "id": "visitors",
+          "name": "구경꾼",
+          "from": "기획서 8.1, 9"
+        }
+      },
+      "intruder": {
+        "id": "visitors",
+        "name": "구경꾼",
+        "when": "어려운 발길이 왔다는 소문",
+        "harm": "새들의 편안함이 깎인다",
+        "counter": [
+          "푯말",
+          "가림막"
+        ],
+        "note": "사진사, 드론. 잘될수록 늘어서 저절로 균형이 잡힌다. 자리를 정해 받으면 돈이 된다",
+        "from": "기획서 9"
+      },
+      "evidence": "겨울 탐조 기록. 자료는 다시 받아야 한다",
+      "from": "1차 기획서 7, 기획서 11.1"
+    },
+    {
+      "id": "stream",
+      "name": "봄 냇가",
+      "season": "봄",
+      "order": 2,
+      "walk": "물가를 따라 걷는다",
+      "dilemma": "물을 흐르게 둘까 막을까",
+      "aiDetail": "lack",
+      "aiSays": "무엇이 모자란지만 말해 준다",
+      "hardReason": "돈과 터전이 부딪힌다",
+      "title": "냇가지기",
+      "expandCost": "아주 많이",
+      "tiles": [
+        {
+          "id": "riffle",
+          "name": "여울",
+          "goodFor": "자갈 깔린 얕고 빠른 물. 어름치가 돌탑을 쌓는다",
+          "costLevel": "조금",
+          "from": "기획서 11.2"
+        },
+        {
+          "id": "pool",
+          "name": "깊은 물",
+          "goodFor": "어름치가 평소에 머문다",
+          "costLevel": "조금",
+          "from": "기획서 11.2"
+        },
+        {
+          "id": "bankwood",
+          "name": "물가 숲",
+          "goodFor": "그늘을 만든다. 수달이 숨고 원앙이 쉰다",
+          "costLevel": "조금",
+          "from": "기획서 11.2"
+        },
+        {
+          "id": "farm",
+          "name": "논밭",
+          "goodFor": "돈이 된다",
+          "costLevel": "많이",
+          "from": "기획서 11.2 (칸). 값은 8.3의 돈 되는 칸 짓기를 옮김",
+          "earns": true
+        },
+        {
+          "id": "village",
+          "name": "마을",
+          "goodFor": "많아지면 어름치가 떠난다",
+          "costLevel": "조금",
+          "from": "기획서 11.2 (칸). 값은 짐작"
+        },
+        {
+          "id": "weir",
+          "name": "보",
+          "goodFor": "물을 막는다. 논밭 수입이 늘고, 여울이 고인 물이 된다",
+          "costLevel": "많이",
+          "from": "기획서 11.2, 설계안 2.4",
+          "earns": true
+        }
+      ],
+      "items": [
+        {
+          "id": "fishway",
+          "name": "물고기 길",
+          "placeOn": [
+            "weir"
+          ],
+          "does": "보가 있어도 물고기가 오르내릴 수 있게 한다",
+          "kind": "care",
+          "costLevel": "보통",
+          "from": "기획서 11.2"
+        },
+        {
+          "id": "bankgrass",
+          "name": "물가 풀숲",
+          "placeOn": [
+            "bankwood"
+          ],
+          "does": "수달이 숨을 곳을 만든다",
+          "kind": "care",
+          "costLevel": "보통",
+          "from": "기획서 11.2 (놓는 곳은 짐작)",
+          "placeOnGuess": true
+        }
+      ],
+      "earn": {
+        "big": {
+          "id": "weirdam",
+          "name": "보를 막아 논밭에 물 대기",
+          "price": "여울이 고인 물이 된다",
+          "from": "기획서 8.1, 설계안 2.4"
+        },
+        "small": {
+          "id": "snail",
+          "name": "다슬기 줍기",
+          "leaveFor": "어름치가 먹는다",
+          "from": "기획서 8.1"
+        },
+        "guest": {
+          "id": "anglers",
+          "name": "낚시꾼",
+          "from": "기획서 8.1"
+        }
+      },
+      "intruder": {
+        "id": "bass",
+        "name": "배스",
+        "also": [
+          "bluegill"
+        ],
+        "when": "보를 막아 물이 고인다",
+        "harm": "토종 물고기가 밀려난다",
+        "counter": [
+          "보를 연다",
+          "걷어 낸다"
+        ],
+        "note": "배스와 블루길 둘이다. 사람이 들여와 퍼진 물고기다. 그 물고기가 나쁜 것이 아니라 제자리가 아닌 곳에 와 있는 것이다",
+        "from": "기획서 9"
+      },
+      "evidence": "하천 물고기 조사 3,053지점, 22만 줄",
+      "from": "1차 기획서 7, 기획서 11.2"
+    },
+    {
+      "id": "forest",
+      "name": "여름 숲",
+      "season": "여름",
+      "order": 3,
+      "walk": "샛길을 오른다",
+      "dilemma": "손을 댈까 그냥 둘까",
+      "aiDetail": "unknown",
+      "aiSays": "어려운 발길은 \"아직 모름\"이라고 말한다",
+      "hardReason": "AI가 모르는 이웃이 있다",
+      "title": "숲지기",
+      "expandCost": "아주 많이",
+      "tiles": [
+        {
+          "id": "broadleaf",
+          "name": "활엽수림",
+          "goodFor": "도토리가 열린다. 다람쥐와 오소리가 산다",
+          "costLevel": "조금",
+          "from": "기획서 11.3"
+        },
+        {
+          "id": "conifer",
+          "name": "침엽수림",
+          "goodFor": "하늘다람쥐가 가지 위에 둥지를 튼다",
+          "costLevel": "조금",
+          "from": "기획서 11.3"
+        },
+        {
+          "id": "valley",
+          "name": "계곡",
+          "goodFor": "물이 있다",
+          "costLevel": "조금",
+          "from": "기획서 11.3"
+        },
+        {
+          "id": "rock",
+          "name": "바위",
+          "goodFor": "산양이 올라 되새김한다",
+          "costLevel": "조금",
+          "from": "기획서 11.3"
+        },
+        {
+          "id": "clearing",
+          "name": "풀밭·벤 자리",
+          "goodFor": "나무를 베면 돈이 된다. 꽃사슴이 온다",
+          "costLevel": "많이",
+          "from": "기획서 11.3 (칸). 값은 8.3의 돈 되는 칸 짓기를 옮김",
+          "earns": true
+        }
+      ],
+      "items": [
+        {
+          "id": "nestbox",
+          "name": "둥지 상자",
+          "placeOn": [
+            "broadleaf",
+            "conifer"
+          ],
+          "does": "하늘다람쥐와 솔부엉이가 쓸 수 있다",
+          "kind": "care",
+          "costLevel": "보통",
+          "from": "기획서 11.3 (놓는 곳은 짐작). 실제로 쓰는 비율이 낮다는 연구가 있어 효과를 크게 그리지 않는다(행동_문헌조사 4)",
+          "placeOnGuess": true
+        },
+        {
+          "id": "pathblock",
+          "name": "샛길 막이",
+          "placeOn": [
+            "*"
+          ],
+          "does": "사람 발길을 줄인다. 산양은 200m 밖의 소리에도 달아난다",
+          "kind": "care",
+          "costLevel": "보통",
+          "from": "기획서 11.3, 행동_문헌조사 1"
+        }
+      ],
+      "earn": {
+        "big": {
+          "id": "logging",
+          "name": "나무 베어 팔기",
+          "price": "숲이 끊기고 큰 나무가 사라진다",
+          "from": "기획서 8.1, 설계안 2.4"
+        },
+        "small": {
+          "id": "acorn",
+          "name": "도토리와 산나물 줍기",
+          "leaveFor": "다람쥐가 먹는다",
+          "from": "기획서 8.1"
+        },
+        "guest": {
+          "id": "hikers",
+          "name": "등산객",
+          "from": "기획서 8.1"
+        }
+      },
+      "intruder": {
+        "id": "sika",
+        "name": "꽃사슴",
+        "when": "풀밭과 벤 자리가 는다",
+        "harm": "숲 아래층이 뜯겨 사라진다",
+        "counter": [
+          "숲을 되돌린다"
+        ],
+        "note": "풀려난 사육 사슴이다. 숲은 무엇을 할지가 아니라 무엇을 하지 않을지를 고민하는 곳이다",
+        "from": "기획서 9, 11.3"
+      },
+      "evidence": "국립공원 조사 79만 줄. 산양과 하늘다람쥐는 자료에 한 줄도 없다",
+      "from": "1차 기획서 7, 기획서 11.3"
+    },
+    {
+      "id": "coast",
+      "name": "가을 바닷가",
+      "season": "가을",
+      "order": 4,
+      "walk": "썰물에 드러난 갯벌을 걷는다",
+      "dilemma": "펄로 둘까 모래로 둘까",
+      "aiDetail": "conflict",
+      "aiSays": "알려 주지만 다 들어줄 수는 없다",
+      "hardReason": "조건끼리 부딪히고, 차례를 밟아야 한다",
+      "title": "바닷가지기",
+      "expandCost": "아주 많이",
+      "tiles": [
+        {
+          "id": "mud",
+          "name": "펄",
+          "goodFor": "농게, 칠게, 칠면초",
+          "costLevel": "조금",
+          "from": "기획서 11.4"
+        },
+        {
+          "id": "mixed",
+          "name": "섞인 바닥",
+          "goodFor": "바지락",
+          "costLevel": "조금",
+          "from": "기획서 11.4"
+        },
+        {
+          "id": "sand",
+          "name": "모래",
+          "goodFor": "엽낭게, 달랑게, 동죽",
+          "costLevel": "조금",
+          "from": "기획서 11.4"
+        },
+        {
+          "id": "channel",
+          "name": "갯골",
+          "goodFor": "바닷물이 드나드는 물길",
+          "costLevel": "조금",
+          "from": "기획서 11.4"
+        },
+        {
+          "id": "dune",
+          "name": "모래 언덕",
+          "goodFor": "해당화, 갯메꽃",
+          "costLevel": "조금",
+          "from": "기획서 11.4"
+        },
+        {
+          "id": "farmflat",
+          "name": "양식장·염전",
+          "goodFor": "돈이 된다. 갯벌을 막고 덮는다",
+          "costLevel": "많이",
+          "from": "기획서 11.4, 8.3",
+          "earns": true
+        }
+      ],
+      "items": [
+        {
+          "id": "sandfence",
+          "name": "모래 울타리",
+          "placeOn": [
+            "sand",
+            "dune"
+          ],
+          "does": "모래가 쌓여 언덕이 자라게 한다",
+          "kind": "care",
+          "costLevel": "보통",
+          "from": "기획서 11.4 (놓는 곳은 짐작)",
+          "placeOnGuess": true
+        },
+        {
+          "id": "channelopen",
+          "name": "물길 트기",
+          "placeOn": [
+            "channel"
+          ],
+          "does": "막힌 갯골에 바닷물이 드나들게 한다",
+          "kind": "care",
+          "costLevel": "보통",
+          "from": "기획서 11.4"
+        }
+      ],
+      "earn": {
+        "big": {
+          "id": "farmflat",
+          "name": "양식장·염전",
+          "price": "갯벌이 막히고 덮인다",
+          "from": "기획서 8.1, 11.4"
+        },
+        "small": {
+          "id": "clam",
+          "name": "조개 캐기",
+          "leaveFor": "도요새가 먹는다",
+          "from": "기획서 8.1"
+        },
+        "guest": {
+          "id": "mudtourists",
+          "name": "갯벌 체험객",
+          "from": "기획서 8.1"
+        }
+      },
+      "intruder": {
+        "id": "spartina",
+        "name": "영국갯끈풀",
+        "when": "내버려 두면 스스로 번진다",
+        "harm": "펄을 덮어 칠면초와 게의 자리를 빼앗는다",
+        "counter": [
+          "번지기 전에 뽑아낸다"
+        ],
+        "note": "밖에서 들어온 풀이다. 물때가 있어 썰물에 갯벌이 드러나야 게와 새가 나온다",
+        "from": "기획서 9, 11.4"
+      },
+      "evidence": "갯벌 조사 약 500지점. 조사 철이 제각각이라 가을에도 그대로인지 확인해야 한다",
+      "from": "1차 기획서 7, 기획서 11.4"
+    }
+  ],
+  "intruders": [
+    {
+      "id": "visitors",
+      "zone": "field",
+      "name": "구경꾼",
+      "kind": "person",
+      "sci": null,
+      "why": "어려운 발길이 왔다는 소문",
+      "harm": "새들의 편안함이 깎인다",
+      "counter": [
+        "푯말",
+        "가림막"
+      ],
+      "story": {
+        "text": "사진사와 드론이 다가온다. 두루미는 차가 250m 안에 서면 반응한다는 철원 조사가 있다.",
+        "sources": [
+          "https://koreascience.or.kr/article/JAKO200707341630390.page?lang=ko"
+        ],
+        "checked": true
+      },
+      "from": "기획서 9, 행동_문헌조사 1"
+    },
+    {
+      "id": "bass",
+      "zone": "stream",
+      "name": "배스",
+      "kind": "fish",
+      "sci": "Micropterus salmoides",
+      "why": "보를 막아 물이 고인다",
+      "harm": "토종 물고기가 밀려난다",
+      "counter": [
+        "보를 연다",
+        "걷어 낸다"
+      ],
+      "story": {
+        "text": "하천 조사 1,301지점에 있다. 예전 모델에서 고인 물이 늘면 늘었다.",
+        "sources": [
+          "기획서 9 (하천 물고기 조사)"
+        ],
+        "checked": false
+      },
+      "from": "기획서 9"
+    },
+    {
+      "id": "bluegill",
+      "zone": "stream",
+      "name": "블루길",
+      "kind": "fish",
+      "sci": "Lepomis macrochirus",
+      "why": "보를 막아 물이 고인다",
+      "harm": "토종 물고기가 밀려난다",
+      "counter": [
+        "보를 연다",
+        "걷어 낸다"
+      ],
+      "story": {
+        "text": "배스와 함께 고인 물에 들어온다.",
+        "sources": [
+          "기획서 9"
+        ],
+        "checked": false
+      },
+      "from": "기획서 9"
+    },
+    {
+      "id": "sika",
+      "zone": "forest",
+      "name": "꽃사슴",
+      "kind": "mammal",
+      "sci": "Cervus nippon",
+      "why": "풀밭과 벤 자리가 는다",
+      "harm": "숲 아래층이 뜯겨 사라진다",
+      "counter": [
+        "숲을 되돌린다"
+      ],
+      "story": {
+        "text": "풀려난 사육 사슴이다. 국립공원 자료에 속리산 네 지점이 있다.",
+        "sources": [
+          "기획서 9 (국립공원 조사)"
+        ],
+        "checked": false
+      },
+      "from": "기획서 9"
+    },
+    {
+      "id": "spartina",
+      "zone": "coast",
+      "name": "영국갯끈풀",
+      "kind": "plant",
+      "sci": "Spartina anglica",
+      "why": "내버려 두면 스스로 번진다",
+      "harm": "펄을 덮어 칠면초와 게의 자리를 빼앗는다",
+      "counter": [
+        "번지기 전에 뽑아낸다"
+      ],
+      "story": {
+        "text": "밖에서 들어온 풀이다. 염생식물 조사에 아홉 지점이 있다. 펄을 덮어 다른 생물을 밀어내는지는 확인할 것이다.",
+        "sources": [
+          "기획서 9, 설계안 2.4"
+        ],
+        "checked": false
+      },
+      "from": "기획서 9, 설계안 2.4"
+    }
+  ]
+}
