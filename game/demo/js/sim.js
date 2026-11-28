@@ -414,7 +414,11 @@
         const next = GD.ZONES.find(o => o.order === z.order + 1);
         if (next && !(s.z[next.id] && s.z[next.id].open) && !s.flags['opened_' + next.id]) {
           s.flags['opened_' + next.id] = true;
-          if (next.ready && s.z[next.id]) s.z[next.id].open = true;
+          if (next.ready && s.z[next.id]) {
+            s.z[next.id].open = true;
+            // 새로 열린 구역이 첫날에 텅 비어 있지 않게, 열리는 그날의 이웃을 바로 정한다
+            arrive(next); did().lv0[next.id] = levels(next.id);
+          }
           out.events.push({ open: next.id, ready: next.ready });
         }
         if (all && !Z.done) { Z.done = true; out.events.push({ done: z.id }); }

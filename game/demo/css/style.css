@@ -177,6 +177,7 @@ body.tend #fps{left:auto;right:24px;bottom:150px}
 /* 첫 아침 안내 */
 #tut{left:50%;bottom:64px;transform:translateX(-50%);display:none;align-items:center;gap:12px;font-size:15px;line-height:1.5;padding:11px 16px 11px 20px;max-width:min(760px,calc(100vw - 80px));background:rgba(255,251,242,.95);z-index:6;border-left:5px solid #7a9c7e}
 body.tend #tut{bottom:150px}
+body.walk #tut{bottom:84px}   /* 좁은 창에서는 아래 조작 도움말이 두 줄이 돼서 겹친다 */
 #tut.tip{border-left-color:#c9a15a;font-size:14px}
 #tutline{flex:1}
 #tut button{border:0;border-radius:9px;font-size:12.5px;padding:6px 11px;cursor:pointer;white-space:nowrap;background:#e4dcc8;color:#3d3a32}
@@ -184,7 +185,7 @@ body.tend #tut{bottom:150px}
 #tutskip{background:transparent !important;color:#8c8771 !important;text-decoration:underline}
 body.tut #news, body.tut #bMap{display:none}
 body.walk #obs{bottom:84px}
-body.walk.tut #obs, body.walk.tipon #obs{bottom:128px}
+body.walk.tut #obs, body.walk.tipon #obs{bottom:160px}
 .tutglow{outline:3px solid #e0b24a !important;outline-offset:2px;animation:tutglow 1.2s ease-in-out infinite}
 @keyframes tutglow{0%,100%{outline-color:rgba(224,178,74,1)}50%{outline-color:rgba(224,178,74,.25)}}
 #introB input[type=text]{font:inherit;font-size:16px;padding:8px 12px;border:1px solid #cfc5ad;border-radius:10px;width:240px;background:#fffdf7;margin-top:4px}
