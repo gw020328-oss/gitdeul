@@ -19,15 +19,17 @@
     stream: {
       hasWalk: true, snow: false, sky: 'spring', spawn: '1,2', outVeg: 'yard', base: 'bank', extraTiles: [{ id: 'bank', name: '둔치', goodFor: '아직 아무것도 아닌 물가의 빈 땅이다', costLevel: '조금', engine: true }],
       smallOn: ['riffle'], cropOn: ['farm'],
-      start: { '-2,0': 'riffle', '-1,0': 'riffle', '0,0': 'pool', '1,0': 'riffle', '-2,-1': 'bankwood', '0,-1': 'bankwood', '2,-1': 'farm', '2,1': 'farm', '3,-2': 'village', '-3,2': 'village' }
+      // 처음 땅은 어려운 발길의 이웃 모두에게 '낮음'이 되게 둔다 (균형 모의로 맞춤, 11월 28일)
+      start: { '-2,0': 'riffle', '-1,0': 'riffle', '0,0': 'pool', '-2,-1': 'bankwood', '0,-1': 'bankwood', '2,-1': 'farm', '2,1': 'farm', '3,-2': 'village', '-3,2': 'village' }
     },
+    // 숲은 AI가 어려운 발길을 모른다고 말하는 구역이다. 다녀간 흔적이 생겨야 실마리가 잡히므로 하늘다람쥐만 '보통'에 걸치게 침엽수를 셋 둔다.
     forest: {
       hasWalk: true, snow: false, sky: 'summer', spawn: '1,2', outVeg: 'tree', exposure: 1.3, base: 'broadleaf', smallOn: ['broadleaf'],
-      start: { '0,0': 'valley', '1,-1': 'valley', '-1,1': 'valley', '2,-2': 'valley', '-2,2': 'valley', '-2,0': 'conifer', '-3,1': 'conifer', '-2,-1': 'conifer', '-3,0': 'conifer', '2,1': 'rock', '3,-3': 'clearing', '3,-2': 'clearing', '1,2': 'clearing' }
+      start: { '0,0': 'valley', '1,-1': 'valley', '-1,1': 'valley', '2,-2': 'valley', '-2,2': 'valley', '-2,0': 'conifer', '-3,1': 'conifer', '-3,0': 'conifer', '2,1': 'rock', '3,-3': 'clearing', '3,-2': 'clearing', '1,2': 'clearing' }
     },
     coast: {
       hasWalk: true, snow: false, sky: 'autumn', spawn: '1,2', sea: true, farColor: [.78, .7, .54], base: 'mixed', smallOn: ['mixed', 'sand'],
-      start: { '-3,0': 'channel', '-2,0': 'channel', '-1,0': 'channel', '0,0': 'channel', '-1,-1': 'mud', '-2,-1': 'mud', '0,-1': 'mud', '-2,1': 'mud', '-1,1': 'mud', '2,-1': 'sand', '3,-2': 'sand', '3,-3': 'dune', '-3,3': 'farmflat', '-2,3': 'farmflat' }
+      start: { '-3,0': 'channel', '-2,0': 'channel', '-1,0': 'channel', '0,0': 'channel', '-1,-1': 'mud', '-2,1': 'mud', '3,-2': 'sand', '3,-3': 'dune', '-3,3': 'farmflat', '-2,3': 'farmflat', '-1,3': 'farmflat', '-3,2': 'farmflat' }
     }
   };
   // 자료의 아이템 id 를 게임 코드가 쓰는 id 로 맞춘다

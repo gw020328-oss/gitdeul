@@ -1,5 +1,7 @@
 /* 깃들 데모: 균형 모의 (화면 없이 규칙만 돌린다)
    쓰는 법: node demo/tools/balance_sim.js [판 수, 기본 120]
+   숫자를 바꿔 돌려 보기: GD_CFG='{"income":{"record":[2,3,5]}}' node demo/tools/balance_sim.js
+     (config.js 의 CFG 에 덮어쓴다. 파일은 바뀌지 않는다)
    하는 일: 네 구역을 따로따로 열어 놓고, 꾸준한 사람과 이틀에 한 번 하는 사람이
    첫 어려운 발길의 이웃을 깃들게 하기까지 며칠이 걸리는지 센다. 숫자는 demo/js/config.js 의 것이다.
    모의 속 사람이 하는 일: 손님은 돌려보내고, 불청객은 걷어 내고, 폐비닐과 흔적은 다 줍고,
@@ -19,6 +21,7 @@ for (const f of ['content_data.js', 'config.js', 'util.js', 'data_base.js', 'con
   vm.runInContext(fs.readFileSync(path.join(JS, f), 'utf8'), ctx, { filename: f });
 const GD = ctx.GD, CFG = GD.CFG, SIM = GD.sim, RL = GD.rules;
 GD.state.save = GD.state.saveNow = () => true;
+if (process.env.GD_CFG) { const o = JSON.parse(process.env.GD_CFG); for (const k in o) { if (o[k] && typeof o[k] === 'object' && !Array.isArray(o[k])) Object.assign(CFG[k], o[k]); else CFG[k] = o[k]; } }
 
 function run(zid, policy, seed, maxDays) {
   const h0 = GD.util.hashStr; GD.util.hashStr = s => h0(s + '#' + seed);        // 판마다 다른 운
@@ -26,7 +29,7 @@ function run(zid, policy, seed, maxDays) {
   GD.ZONES.forEach(z => { if (S.z[z.id]) S.z[z.id].open = z.id === zid; }); S.zone = zid;
   const z = GD.zone(zid), Z = S.z[zid], hard = z.species.filter(s => s.tier === 'hard').map(s => s.id);
   SIM.startDay();
-  const out = { arr: 0, stay: 0, settle: 0, who: '', chg: 0 };
+  const out = { arr: 0, stay: 0, settle: 0, who: '', chg: 0, m7: 0, m14: 0, low: S.money };
   for (let d = 1; d <= maxDays; d++) {
     if (Z.guest && Z.guest.state === 'waiting') SIM.answerGuest(zid, false);
     if (Z.intruder) SIM.fixIntruder(zid);
@@ -41,7 +44,8 @@ function run(zid, policy, seed, maxDays) {
       if (S.rec[id] >= 2 && !out.stay) out.stay = d;
       if (S.rec[id] >= 3 && !out.settle) { out.settle = d; out.who = id; }
     }
-    if (out.settle) break;
+    if (d === 7) out.m7 = S.money; if (d === 14) out.m14 = S.money;
+    if (out.settle && d >= 14) break;
     if (policy !== 'idle' && (policy === 'diligent' || d % 2 === 1)) {
       const cap = policy === 'diligent' ? 6 : 3;
       for (let c = 0; c < cap; c++) {
@@ -58,7 +62,7 @@ function run(zid, policy, seed, maxDays) {
           }
         }
         if (!best) break;
-        const r = SIM.apply(zid, best.key, best.tool); if (!r || !r.ok) break; out.chg++;
+        const r = SIM.apply(zid, best.key, best.tool); if (!r || !r.ok) break; out.chg++; out.low = Math.min(out.low, S.money);
       }
     }
     if (SIM.nextMorning() === 'yearEnd') SIM.newYear();
@@ -68,12 +72,12 @@ function run(zid, policy, seed, maxDays) {
 }
 
 const N = +process.argv[2] || 120, q = (a, p) => a.length ? a.slice().sort((x, y) => x - y)[Math.min(a.length - 1, Math.floor(a.length * p))] : '-';
-console.log('구역 | 사람 | 깃듦까지 간 판 | 첫 방문 | 첫 머묾 | 첫 깃듦 (가운데, 빠른 10%, 느린 10%) | 누가 | 칸 바꾼 수 | 남은 돈');
+console.log('구역 | 사람 | 깃듦까지 간 판 | 첫 방문 | 첫 머묾 | 첫 깃듦 (가운데, 빠른 10%, 느린 10%) | 누가 | 칸 바꾼 수 | 돈: 가장 적을 때, 7일째, 14일째');
 for (const z of GD.ZONES.filter(z => z.ready)) for (const p of ['diligent', 'light', 'idle']) {
   const R = []; for (let i = 0; i < (p === 'idle' ? Math.min(N, 40) : N); i++) R.push(run(z.id, p, i, 84));
   const ok = R.filter(r => r.settle), who = {}; ok.forEach(r => { who[r.who] = (who[r.who] || 0) + 1; });
   const med = k => q(R.filter(r => r[k]).map(r => r[k]), .5);
   console.log([z.name, { diligent: '꾸준히', light: '이틀에 한 번', idle: '아무것도 안 함' }[p], ok.length + '/' + R.length, med('arr'), med('stay'),
     q(ok.map(r => r.settle), .5) + ' (' + q(ok.map(r => r.settle), .1) + '~' + q(ok.map(r => r.settle), .9) + ')',
-    Object.keys(who).map(k => GD.SP[k].name + ' ' + who[k]).join(', ') || '-', q(R.map(r => r.chg), .5), q(R.map(r => r.money), .5)].join(' | '));
+    Object.keys(who).map(k => GD.SP[k].name + ' ' + who[k]).join(', ') || '-', q(R.map(r => r.chg), .5), q(R.map(r => r.low), .5) + ', ' + q(R.map(r => r.m7), .5) + ', ' + q(R.map(r => r.m14), .5)].join(' | '));
 }
